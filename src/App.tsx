@@ -1,7 +1,13 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Testing from "./pages/testing";
 function App() {
   return (
     <>
-      <div className="text-lg mx-auto">Hello World!</div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Testing />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
