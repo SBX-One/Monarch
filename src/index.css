@@ -1,2 +1,161 @@
 @import "tailwindcss";
-@plugin "daisyui";
+@reference "tailwindcss";
+
+@font-face {
+  font-family: 'Inter Tight';
+  src: url('./assets/font/InterTight-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('./assets/font/Satoshi-Variable.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+.inter-tight {
+  font-family: 'Inter Tight', sans-serif;
+}   
+
+.satoshi {
+  font-family: 'Satoshi', sans-serif;
+}   
+
+@layer components {
+  .header-1-bold {
+    @apply font-bold text-[48px] leading-[48px] tracking-[-1.2%];
+  }
+  .header-1-medium {
+    @apply font-medium text-[48px] leading-[48px] tracking-[-1.2%];
+  }
+  .header-1-regular {
+    @apply font-normal text-[48px] leading-[48px] tracking-[-1.2%];
+  }
+
+  .header-2-bold {
+    @apply font-bold text-[32px] leading-[32px] tracking-[-0.75%];
+  }
+  .header-2-medium {
+    @apply font-medium text-[32px] leading-[32px] tracking-[-0.75%];
+  }
+  .header-2-regular {
+    @apply font-normal text-[32px] leading-[32px] tracking-[-0.75%];
+  }
+
+  .header-3-bold {
+    @apply font-bold text-[24px] leading-[32px] tracking-[-0.6%];
+  } 
+  .header-3-medium {
+    @apply font-medium text-[24px] leading-[32px] tracking-[-0.6%];
+  }
+  .header-3-regular {
+    @apply font-normal text-[24px] leading-[32px] tracking-[-0.6%];
+  }
+
+  .header-4-bold {
+    @apply font-bold text-[20px] leading-[28px] tracking-[-0.5%];
+  }
+  .header-4-medium {
+    @apply font-medium text-[20px] leading-[28px] tracking-[-0.5%];
+  }
+  .header-4-regular {
+    @apply font-normal text-[20px] leading-[28px] tracking-[-0.5%];
+  }
+
+  .body-bold {
+    @apply font-bold text-[16px] leading-[28px];
+  }
+  .body-medium {
+    @apply font-medium text-[16px] leading-[28px];
+  }
+  .body-regular {
+    @apply font-normal text-[16px] leading-[28px];
+  }
+
+  .blockquote {
+    @apply italic font-normal text-[16px] leading-[24px];
+  }
+  .list {
+    @apply font-normal text-[16px] leading-[24px];
+  }
+  .label {
+    @apply font-medium text-[16px] leading-[20px];
+  }
+  .large {
+    @apply font-medium text-[18px] leading-[28px];
+  }
+  .small {
+    @apply font-normal text-[14px] leading-[14px];
+  }
+  .subtle {
+    @apply font-bold text-[14px] leading-[20px];
+  }
+}
+
+/* Custom dots for react-slick */
+/* Supports CSS variables: --dot-size, --dot-color, --dot-active-color */
+.slick-dots,
+.custom-slick-dots {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.slick-dots li,
+.custom-slick-dots li {
+  display: inline-block;
+  margin: 0 4px;
+}
+.slick-dots li button,
+.custom-slick-dots li button {
+  width: var(--dot-size, 10px);
+  height: var(--dot-size, 10px);
+  border-radius: 9999px;
+  background: var(--dot-color, #d1d5db);
+  border: none;
+  padding: 0;
+}
+.slick-dots li.slick-active button,
+.custom-slick-dots li.slick-active button {
+  background: var(--dot-active-color, #111827);
+  transform: scale(1.1);
+}
+
+/* Hide any leftover default slick dots (safety) */
+.slick-dots {
+  display: none !important;
+}
+
+/* Custom external dots wrapper (freely positionable) */
+.custom-dots-wrapper {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  position: absolute; /* change to relative/static to place elsewhere */
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 16px; /* adjust to move above/below slider */
+  z-index: 20;
+}
+.custom-dot {
+  width: var(--dot-size, 10px);
+  height: var(--dot-size, 10px);
+  border-radius: 9999px;
+  background: var(--dot-color, #d1d5db);
+  border: none;
+  padding: 0;
+}
+.custom-dot.active {
+  background: var(--dot-active-color, #111827);
+  transform: scale(1.1);
+}
+
+/* Prevent horizontal scroll caused by full-bleed elements */
+html, body, #root {
+  overflow-x: hidden;
+}
