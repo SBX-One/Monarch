@@ -66,5 +66,19 @@
             "name" : "Shelving Units",
             "image" : "../assets/png/Category5.png"
         }
+    ],
+    "LatestCollections" : [
+        {
+            "id" : 1,
+            "image" : "../assets/png/LatestCollection.png"
+        },
+        {
+            "id" : 2,
+            "image" : "../assets/png/LatestCollection_2.png"
+        },
+        {
+            "id" : 3,
+            "image" : "../assets/png/LatestCollection_2.png"
+        }
     ]
 }

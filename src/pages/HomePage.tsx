@@ -1,9 +1,12 @@
 import Header from "../components/Header"
 import Notification from "../components/Notification"
 import Banner_1 from "../assets/png/banner/Banner_1.png"
+import backgroundBanner from "../assets/png/banner/BackgroundBanner.png"
+import arrow from "../assets/svg/arrow.svg"
 
 import Slider from "react-slick"
 import type { Settings } from "react-slick"
+import HorizontalScroll from "../components/HorizontalScroll"
 
 import { useState, useRef } from "react"
 import Data from "../data/Data_Dummy.json"
@@ -36,17 +39,11 @@ const HomePages = () => {
         beforeChange: (_current: number, next: number) => setActiveIndex(next),
     }
 
-    const resolveImage = (path: string) => {
-        try {
-            return new URL(path, import.meta.url).href
-        } catch (e) {
-            return path
-        }
-    }
-
     const handleNotificationClose = () => {
         setShowNotification(false);
     };
+
+
 
     return (
         <div className="bg-[#fafafa]">
@@ -73,19 +70,31 @@ const HomePages = () => {
                     ))}
                 </div>
             </div>
-            <div className="mt-[80px] px-10">
-                <h1 className="large">Highlights</h1>
-                    <div className="mt-5 mb-5 overflow-x-auto -mx-10">
-                        <div className="flex gap-6 items-center flex-nowrap pl-10">
-                            {Data.categories.map((item, index) => (
-                                <div key={index} className="flex-shrink-0 w-auto flex flex-col-reverse">
-                                    <h2 className="mb-2">{item.name}</h2>
-                                    <img src={resolveImage(item.image as string)} alt={item.name} className="h-[310px] object-contain body-regular" />
-                                </div>
-                            ))}
+            <HorizontalScroll title={"Highlights"} data={Data.categories} customStyle={{marginRight : "-40px", marginLeft : "-40px", paddingLeft : "40px"}} customStyle2={{gap : "8px"}}  />
+            <div
+                className="w-full h-[496px] flex items-center pl-[98px] my-[80px]"
+                style={{
+                    backgroundImage: `url(${backgroundBanner})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat',
+                }}
+            >
+                <div className="flex flex-col gap-[24px]">
+                    <h1 className="header-1-bold text-[#A30303]">CHRISTMAS ESSENCIAL</h1>
+                    <div className="flex flex-row gap-[16px]">
+                        <div className="flex flex-row gap-[8px]">
+                            <h1 className="label pb-3">Women</h1>
+                            <img src={arrow} className="rotate-180" alt="arrow" />
+                        </div>
+                        <div className="flex flex-row gap-[8px]">
+                            <h1 className="label pb-3">Men</h1>
+                            <img src={arrow} className="rotate-180" alt="arrow" />
                         </div>
                     </div>
+                </div>
             </div>
+
+            <section>
+                <HorizontalScroll title={"Our Latest Collections"} data={Data.LatestCollections} customStyle2={{justifyContent: "space-between", maxHeight: "500px", minHeight: "448px"}} />
+            </section>
         </div>
     )
 }

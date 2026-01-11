@@ -159,3 +159,14 @@
 html, body, #root {
   overflow-x: hidden;
 }
+
+/* Hide scrollbars across browsers while preserving scroll functionality */
+html, body, #root {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+#root::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
