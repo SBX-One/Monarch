@@ -1,0 +1,41 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<rect width="24" height="24" rx="12" fill="white"/>
+<rect width="24" height="24" rx="12" fill="url(#pattern0_2404_7838)"/>
+<rect x="0.25" y="0.25" width="23.5" height="23.5" rx="11.75" stroke="black" stroke-opacity="0.22" stroke-width="0.5"/>
+<rect width="24" height="24" rx="12" fill="#DEDEDE"/>
+<rect width="24" height="24" rx="12" fill="url(#pattern1_2404_7838)"/>
+<rect x="0.25" y="0.25" width="23.5" height="23.5" rx="11.75" stroke="black" stroke-opacity="0.22" stroke-width="0.5"/>
+<path d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z" fill="url(#pattern2_2404_7838)"/>
+<rect width="24" height="24" rx="12" fill="#2D2F22"/>
+<rect x="0.5" y="0.5" width="23" height="23" rx="11.5" stroke="black" stroke-opacity="0.22"/>
+<g clip-path="url(#clip0_2404_7838)">
+<mask id="mask0_2404_7838" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="6" y="6" width="12" height="12">
+<path d="M17.75 6.25V17.75H6.25V6.25H17.75Z" fill="white" stroke="white" stroke-width="0.5"/>
+</mask>
+<g mask="url(#mask0_2404_7838)">
+<path d="M17 9.25H14" stroke="white" stroke-width="0.75" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M9 9.25H7" stroke="white" stroke-width="0.75" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M11 11C11.9665 11 12.75 10.2165 12.75 9.25C12.75 8.2835 11.9665 7.5 11 7.5C10.0335 7.5 9.25 8.2835 9.25 9.25C9.25 10.2165 10.0335 11 11 11Z" stroke="white" stroke-width="0.75" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17 14.75H15" stroke="white" stroke-width="0.75" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M10 14.75H7" stroke="white" stroke-width="0.75" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M13 16.5C13.9665 16.5 14.75 15.7165 14.75 14.75C14.75 13.7835 13.9665 13 13 13C12.0335 13 11.25 13.7835 11.25 14.75C11.25 15.7165 12.0335 16.5 13 16.5Z" stroke="white" stroke-width="0.75" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<defs>
+<pattern id="pattern0_2404_7838" patternContentUnits="objectBoundingBox" width="1" height="1">
+<use xlink:href="#image0_2404_7838" transform="translate(-0.3125 -0.3125) scale(0.0625)"/>
+</pattern>
+<pattern id="pattern1_2404_7838" patternContentUnits="objectBoundingBox" width="1" height="1">
+<use xlink:href="#image1_2404_7838" transform="translate(-0.3125 -0.3125) scale(0.0625)"/>
+</pattern>
+<pattern id="pattern2_2404_7838" patternContentUnits="objectBoundingBox" width="1" height="1">
+<use xlink:href="#image2_2404_7838" transform="translate(-0.3125 -0.3125) scale(0.0625)"/>
+</pattern>
+<clipPath id="clip0_2404_7838">
+<rect width="12" height="12" fill="white" transform="translate(6 6)"/>
+</clipPath>
+<image id="image0_2404_7838" width="26" height="26" preserveAspectRatio="none" xlink:href="data:image/jpeg;base64,/9j/4QAiRXhpZgAASUkqAAgAAAABABIBAwABAAAAAQAAAAAAAAD/2wCEAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRQBAwQEBQQFCQUFCRQNCw0UFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFP/CABEIABoAGgMBEQACEQEDEQH/xAAxAAADAAMAAAAAAAAAAAAAAAADBQYABAcBAAMBAAMAAAAAAAAAAAAAAAECAwAEBQb/2gAMAwEAAhADEAAAAOyeQ75067zLGQrV2QpEHx6iBsLyjoVOQyZZ5K5g+dT5P//EACUQAAIBAwMEAgMAAAAAAAAAAAECBAADEQUhQQYSMVETYRRSkv/aAAgBAQABPwCNGLHufLE8Vp+k3JbgBcLWq6tG6aj/AA2MXJhH8/dPrc13ZjJbJOTitKgmUFJXtH2K13qK1o1kxYmGkkbn9akSHuuzuxe425J5r8ZzvitY6qtwrRjQSGu4w1zhauSi7kkl3byTzUSMXIZqFgDiiT2efNRd7gzvUUD16onc1//EAB0RAAEEAgMAAAAAAAAAAAAAAAEAAhAREjEgIUH/2gAIAQIBAT8ApAWnEM69WRTRac7EUFuC+tQOAj//xAAaEQADAQEBAQAAAAAAAAAAAAAAAREQAiEx/9oACAEDAQE/AKNiT6IhsXN9eUXN+ky49//Z"/>
+<image id="image1_2404_7838" width="26" height="26" preserveAspectRatio="none" xlink:href="data:image/jpeg;base64,/9j/4QAiRXhpZgAASUkqAAgAAAABABIBAwABAAAAAQAAAAAAAAD/2wCEAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRQBAwQEBQQFCQUFCRQNCw0UFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFP/CABEIABoAGgMBEQACEQEDEQH/xAAwAAACAgMAAAAAAAAAAAAAAAAEBgEFAgMIAQADAQEAAAAAAAAAAAAAAAAAAQMCBf/aAAwDAQACEAMQAAAA5R5vVuc7hJNtFtnbIEm8CEMkqqF4GjNy1/WN47RaIR//xAAkEAABBAIBBAIDAAAAAAAAAAABAAIDEQQFIQYSMUEicUJSYf/aAAgBAQABPwCAd1UPKwcIuaDX0txuYNBF2MqXMcOG/r/Sn7fPke5xyJLcb4K1mB3ubQtb/qOLTxHGxiH5VUSPDES/IlMsri97jZJ9oQGvC3vUcephOHhOD8ginyj8fpC5Hl7yXOJsk+1jw3yUIuPCBLnuJNk+yoOXlQD4IHhf/8QAGxEAAwADAQEAAAAAAAAAAAAAAAECEBESISD/2gAIAQIBAT8AY2KXRyhsmevWaxM79f08f//EABwRAAMBAAIDAAAAAAAAAAAAAAABAhEQEiAhMf/aAAgBAwEBPwASHSk1iWlVnzmq6+kaLy//2Q=="/>
+<image id="image2_2404_7838" width="26" height="26" preserveAspectRatio="none" xlink:href="data:image/jpeg;base64,/9j/4QAiRXhpZgAASUkqAAgAAAABABIBAwABAAAAAQAAAAAAAAD/2wCEAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRQBAwQEBQQFCQUFCRQNCw0UFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFP/CABEIABoAGgMBEQACEQEDEQH/xAAuAAACAwEAAAAAAAAAAAAAAAADBQEEBgkBAQEBAQAAAAAAAAAAAAAAAAABAgP/2gAMAwEAAhADEAAAAOenfNmiCDBzoRc5lKPrc9BksKvQhaUmb//EACQQAAEDBAEDBQAAAAAAAAAAAAEAAgMEBREhMRASQRMyQlGR/9oACAEBAAE/AC7GlSwOmcMBXC4R22PsZh05H4nV8znEl5yd8qkpHVLxrSuN0jt0Zhg3KeXfSe90ry5xJJ8lekVdLsyhjNPTEF/yePCLi8kk5JUUfkrsCJy853tR+5M46f/EABcRAQEBAQAAAAAAAAAAAAAAAAEQITD/2gAIAQIBAT8AjlXn/8QAFhEAAwAAAAAAAAAAAAAAAAAAESAw/9oACAEDAQE/AJhf/9k="/>
+</defs>
+</svg>

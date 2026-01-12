@@ -1,45 +1,4 @@
 {
-    "products" : [
-        {
-            "id" : 484503,
-            "name" : "Unisex Double Weave Hakama Trousers",
-            "price" : 2451000,
-            "category": "Skirts & Trousers",
-            "image" : "../assets/png/product_1.png",
-            "status" : "available",
-            "color" : [
-                "Gold",
-                "Black",
-                "Brown"
-            ],
-            "size" : [
-                "XS",
-                "S",
-                "M",
-                "L",
-                "XL"
-            ],
-            "stock" : 14,
-            "promo" : "Christmas Sale",
-            "description" : [
-                {
-                    "Detail" : ["Colared design for unique style", "Relaxed silhouette"],
-                    "Function Details" : {
-                        "Transparant" : "Not Transparant",
-                        "Fit" : "Relaxed",
-                        "Pocket" : "None"
-                    },
-                    "Shipping" : {
-                        "delivery" : "Delivery Date: This information will be displayed after selecting \"Shipping Method\" on the checkout page. Shipping Cost: Shipping costs may vary depending on the destination. Free shipping is only available for purchases over $99,00.",
-                        "Exchange" : "Exchange: Valid for direct online purchases. Return: Valid for online purchases with shipping to the warehouse. Return/Exchange Deadline: Within 30 days from the date of delivery. Return Shipping Cost: Customers will bear the return shipping costs."
-                    },
-                    "production" : {
-                        "production_information" : "We are continuously working to improve our production process verification, both internally and through third parties, to fully understand the origins of our raw materials, where we spin our yarn, where we produce our fabrics, and where we sew, knit, and finish our garments. This verification helps us improve the quality of our garments while ensuring safer manufacturing practices. We will continue to share this information so our customers can make more informed decisions about their clothing."
-                    }
-                }
-            ]
-        }
-    ],
     "categories" : [
         {
             "id" : 1,
@@ -79,6 +38,55 @@
         {
             "id" : 3,
             "image" : "../assets/png/LatestCollection_2.png"
+        }
+    ],
+    "products" : [
+        {
+            "id" : 1,
+            "name" : "Unisex Double Weave Hakama Trousers",
+            "price" : 2451000,
+            "image" : "../assets/png/product_1.png",
+            "eventType" : "New Arrival"
+        },
+        {
+            "id" : 2,
+            "name" : "Unisex Double Weave Hakama Trousers",
+            "price" : 2451000,
+            "image" : "../assets/png/product_2.png",
+            "eventType" : "Sold Out"
+        },
+        {
+            "id" : 3,
+            "name" : "Unisex Double Weave Hakama Trousers",
+            "price" : 2451000,
+            "image" : "../assets/png/product_3.png",
+            "eventType" : "Custom Event"
+        },
+        {
+            "id" : 4,
+            "name" : "Unisex Double Weave Hakama Trousers",
+            "price" : 2451000,
+            "image" : "../assets/png/product_4.png"
+        },
+        {
+            "id" : 5,
+            "name" : "Unisex Double Weave Hakama Trousers",
+            "price" : 2451000,
+            "image" : "../assets/png/product_1.png"
+        }
+    ],
+    "colorSetting" : [
+        {
+            "name" : "White Gold",
+            "image" : "../assets/png/WhiteGoldColor.png"
+        },
+        {
+            "name" : "Black Metaillic",
+            "image" : "../assets/png/MetallicBlackColor.png"
+        },
+        {
+            "name" : "Brown Gold",
+            "image" : "../assets/png/BrowGoldColor.png"
         }
     ]
 }
