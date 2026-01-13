@@ -110,6 +110,7 @@ export default function HorizontalScroll({ title, data, customStyle, customStyle
                             ))}
                         </div>
                     </div>
-            </div>
+                
+        </div>
     )
 }

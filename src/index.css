@@ -17,6 +17,27 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Google sans';
+  src: url('./assets/font/GoogleSans-VariableFont_GRAD\,opsz\,wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Google sans regular';
+  src: url('./assets/font/GoogleSans-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-display: swap;
+}
+
+.google-sans {
+  font-family: 'Google sans', sans-serif;
+}
+.google-sans-regular {
+  font-family: 'Google sans regular', sans-serif;
+}
+
 .inter-tight {
   font-family: 'Inter Tight', sans-serif;
 }   

@@ -3,6 +3,7 @@ import Notification from "../components/Notification"
 import Banner_1 from "../assets/png/banner/Banner_1.png"
 import backgroundBanner from "../assets/png/banner/BackgroundBanner.png"
 import arrow from "../assets/svg/arrow.svg"
+import data from "../data/Data_Dummy.json";
 
 import Slider from "react-slick"
 import type { Settings } from "react-slick"
@@ -43,7 +44,13 @@ const HomePages = () => {
         setShowNotification(false);
     };
 
-
+    const resolveImage = (path: string) => {
+        try {
+            return new URL(path, import.meta.url).href
+        } catch {
+            return path
+        }
+    }
 
     return (
         <div className="bg-[#fafafa]">
@@ -98,6 +105,59 @@ const HomePages = () => {
 
             <section>
                 <HorizontalScroll productSettings={true} CustomBackgroundEvent="#BC5249" CustomEventName="Christmas Sale" eventState={true} title={"Recomended For You"} data={Data.products} customStyle={{marginRight : "-40px", marginLeft : "-40px", paddingLeft : "40px"}} customStyle2={{justifyContent: "space-between", maxHeight: "500px", minHeight: "448px"}} imageHeight={"301px"} CustomTextStyle={{ width : "250px", textAlign : "center"}} />
+            </section>
+
+            <section className="mx-10 mt-[80px]">
+                <div className="mb-[48px]">
+                    <h1 className="large">Explore Best Seller</h1>
+                    <p className="body-regular w-111 font-light">Lorem ipsum dolor sit amet consectetur. Leo congue lorem leo quis a interdum. Pharetra auctor ut semper hendrerit eu.</p>
+                </div>
+                <div className="flex flex-row justify-between" >
+                    {data.BestSeller.map((item, index) => (
+                        <div key={index}>
+                            <div>
+                                <div>
+                                    <img src={resolveImage(item.image)} alt={item.name} className={index == 2 ? "h-[537px]" : "h-[403px]"} />
+                                    <div className={index == 2 ? "hidden" : "text-center"}>
+                                        <h3 className="body-regular my-[16px]">
+                                            {item.name}
+                                        </h3>
+                                        <p className="large">
+                                            Rp{item.price}.00 IDR
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </section>
+            <section>
+                <HorizontalScroll title={"Trending Now"} data={Data["Explore More"]} customStyle={{marginRight : "-40px", marginLeft : "-40px", paddingLeft : "40px"}} customStyle2={{justifyContent: "space-between", maxHeight: "500px", minHeight: "310px"}} imageHeight={"310px"} />
+            </section>
+            <section>
+                <div className="mx-10">
+                    <h2 className="large">
+                        Moncarch Stories
+                    </h2>
+                    <p className="body-regular w-111 font-light">
+                        Lorem ipsum dolor sit amet consectetur. Leo congue lorem leo quis a interdum. Pharetra auctor ut semper hendrerit eu.
+                    </p>
+                    <div>
+                        {data.MonarchStories.map((item, index) => (
+                            <div key={index} className="my-[40px] w-full bg-red-500">
+                                <div className="flex flex-row py-[32px] gap-10">
+                                    <div className="w-[300px] flex flex-row">
+                                        <p className="google-sans-regular font-thin">{item.id}</p>
+                                        <h1 className="large w-[280px]">{item.Title}</h1>
+                                    </div>
+                                    <p className="w-[712px]">Designing inviting and functional spaces for hotels , restaurant, and entertainment venues that enhance guest experiences and operational efficiency.</p>
+                                    <button className="label">Read This Post</button>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
             </section>
         </div>
     )

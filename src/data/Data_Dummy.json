@@ -88,5 +88,66 @@
             "name" : "Brown Gold",
             "image" : "../assets/png/BrowGoldColor.png"
         }
+    ],
+    "BestSeller" : [
+        {
+            "name" : "Unisex Double Weave Hakama Trousers",
+            "price" : 2451000,
+            "image" : "../assets/png/product_1.png"
+        },
+        {
+            "name" : "Unisex Double Weave Hakama Trousers",
+            "price" : 2451000,
+            "image" : "../assets/png/product_2.png"
+        },
+        {
+            "name" : "Unisex Double Weave Hakama Trousers",
+            "price" : 2451000,
+            "image" : "../assets/png/product_3.png"
+        }
+    ],
+    "Explore More" : [
+        {
+            "name" : "Bedroom Furniture", 
+            "image" : "../assets/png/BedroomFurniture.png"
+        },
+        {
+            "name" : "Bedding", 
+            "image" : "../assets/png/Bedding.png"
+        },
+        {
+            "name" : "Skincare", 
+            "image" : "../assets/png/Skincare.png"
+        },
+        {
+            "name" : "Women's Trousers & Skirts", 
+            "image" : "../assets/png/Women.png"
+        },
+        {
+            "name" : "Men's Coats & Jackets", 
+            "image" : "../assets/png/Men.png"
+        }
+    ],
+    "MonarchStories" : [
+        {
+            "id" : 1,
+            "Title" : "Christmas: Simplicity Over Spectacle",
+            "description" : "Designing inviting and functional spaces for hotels , restaurant, and entertainment venues that enhance guest experiences and operational efficiency."
+        },
+        {
+            "id" : 2,
+            "Title" : "The Japannese Tradition of year-end gifting",
+            "description" : "Designing inviting and functional spaces for hotels , restaurant, and entertainment venues that enhance guest experiences and operational efficiency."
+        },
+        {
+            "id" : 3,
+            "Title" : "Seasonal shift: 5 easy autumn home decor and wardrobe swaps",
+            "description" : "Designing inviting and functional spaces for hotels , restaurant, and entertainment venues that enhance guest experiences and operational efficiency."
+        },
+        {
+            "id" : 4,
+            "Title" : "Autumn in Japan: A Season of Quiet Beauty",
+            "description" : "Designing inviting and functional spaces for hotels , restaurant, and entertainment venues that enhance guest experiences and operational efficiency."
+        }
     ]
 }
