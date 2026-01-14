@@ -4,6 +4,7 @@ import Banner_1 from "../assets/png/banner/Banner_1.png"
 import backgroundBanner from "../assets/png/banner/BackgroundBanner.png"
 import arrow from "../assets/svg/arrow.svg"
 import data from "../data/Data_Dummy.json";
+import Footer from "../components/Footer"
 
 import Slider from "react-slick"
 import type { Settings } from "react-slick"
@@ -145,19 +146,24 @@ const HomePages = () => {
                     </p>
                     <div>
                         {data.MonarchStories.map((item, index) => (
-                            <div key={index} className="my-[40px] w-full bg-red-500">
-                                <div className="flex flex-row py-[32px] gap-10">
-                                    <div className="w-[300px] flex flex-row">
+                            <div key={index} className="my-[40px] w-full">
+                                <div className="flex flex-row py-[32px] justify-between">
+                                    <div className="w-[300px] flex flex-row gap-[48px]">
                                         <p className="google-sans-regular font-thin">{item.id}</p>
-                                        <h1 className="large w-[280px]">{item.Title}</h1>
+                                        <h1 className="large w-[300px]">{item.Title}</h1>
                                     </div>
-                                    <p className="w-[712px]">Designing inviting and functional spaces for hotels , restaurant, and entertainment venues that enhance guest experiences and operational efficiency.</p>
-                                    <button className="label">Read This Post</button>
+                                    <p className="font-bold satoshi">-</p>
+                                    <p className="w-[712px] body-regular">Designing inviting and functional spaces for hotels , restaurant, and entertainment venues that enhance guest experiences and operational efficiency.</p>
+                                    <button className="label w-[140px] p-[16px] border-1 border-[#dedede] rounded-full">Read This Post</button>
                                 </div>
                             </div>
                         ))}
                     </div>
                 </div>
+            </section>
+
+            <section >
+                <Footer />
             </section>
         </div>
     )

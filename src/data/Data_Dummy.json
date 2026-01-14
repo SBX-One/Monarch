@@ -149,5 +149,15 @@
             "Title" : "Autumn in Japan: A Season of Quiet Beauty",
             "description" : "Designing inviting and functional spaces for hotels , restaurant, and entertainment venues that enhance guest experiences and operational efficiency."
         }
+    ],
+    "ProductsResult" : [
+        {
+            "id" : 1,
+            "name" :"2026 Diaries and Calendars",
+            "category" :"clothes",
+            "price" : 2451000,
+            "image" : "../assets/png/product_1.png",
+            "eventType" :"New Arrival"
+        }
     ]
 }
