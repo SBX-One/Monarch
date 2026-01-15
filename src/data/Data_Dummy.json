@@ -158,6 +158,30 @@
             "price" : 2451000,
             "image" : "../assets/png/product_1.png",
             "eventType" :"New Arrival"
+        },
+        {
+            "id" : 2,
+            "name" :"Unisex Double Weave Hakama Trousers",
+            "category" :"clothes   ",
+            "price" : 2451000,
+            "image" : "../assets/png/product_1.png",
+            "eventType" :"New Arrival"
+        },
+        {
+            "id" : 3,
+            "name" :"Unisex Double Weave Hakama Trousers",
+            "category" :"clothes   ",
+            "price" : 2451000,
+            "image" : "../assets/png/product_3.png",
+            "eventType" :"New Arrival"
+        },
+        {
+            "id" : 4,
+            "name" :"baju anime",
+            "category" :"clothes   ",
+            "price" : 2451000,
+            "image" : "../assets/png/product_4.png",
+            "eventType" :"New Arrival"
         }
     ]
 }

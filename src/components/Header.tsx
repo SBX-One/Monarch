@@ -7,11 +7,13 @@ import x from "../assets/svg/x.svg"
 import clock from "../assets/svg/clock.svg"
 
 import { useState, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 
 export default function Header() {
     const [deleteIcon, setDeleteIcon] = useState(false);
     const [searchInput, setSearchInput] = useState("");
     const [searchHistory, setSearchHistory] = useState<boolean>(false);
+    const navigate = useNavigate();
     // const [searchValue, setSearchValue] = useState<String>("");
 
     useEffect(() => {
@@ -55,6 +57,14 @@ export default function Header() {
         setSearchHistoryList([])
     }
 
+    function handleSubmitSearch() {
+        if (!searchInput.trim()) return;
+        
+          const formattedQuery = searchInput.trim().replace(/\s+/g, "+");
+        navigate(`/search-result/${formattedQuery}`);
+        setSearchHistory(false);
+    }
+
     return (
         <div>
             <div className="h-14 flex items-center justify-center">
@@ -65,7 +75,7 @@ export default function Header() {
                 <div className="flex flex-row bg-full flex-1 gap-[24px]">
                     <div className="flex flex-1 flex-row-reverse py-[10px] h-[44px] rounded-full px-[14px] bg-[#F4F4F4]">
                         {deleteIcon && <img src={x} alt="delete" onClick={handleDeleteIcon} />}
-                        <input type="text" value={searchInput} onFocus={handleSearch} onChange={(e) => setSearchInput(e.target.value)}className="ml-[10px] w-full focus:outline-none" placeholder="Gomu-gomu sherpa fleece jacket" />
+                        <input type="text" value={searchInput} onFocus={handleSearch} onKeyDown={(e) => {if (e.key === "Enter") handleSubmitSearch()}} onChange={(e) => setSearchInput(e.target.value)}className="ml-[10px] w-full focus:outline-none" placeholder="Gomu-gomu sherpa fleece jacket" />
                         <img src={search} alt="search" />
                     </div>
                     <img src={wishlist} alt="wishlist" />
