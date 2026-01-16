@@ -9,6 +9,7 @@ import Footer from "../components/Footer"
 import Slider from "react-slick"
 import type { Settings } from "react-slick"
 import HorizontalScroll from "../components/HorizontalScroll"
+import { useNavigate } from "react-router-dom"
 
 import { useState, useRef } from "react"
 import Data from "../data/Data_Dummy.json"
@@ -22,6 +23,8 @@ const HomePages = () => {
     const [showNotification, setShowNotification] = useState(true);
     const sliderRef = useRef<Slider | null>(null);
     const [activeIndex, setActiveIndex] = useState(0);
+    const [searchInput, setSearchInput] = useState("");
+    const navigate = useNavigate();
 
     // Customize these values to change dot size and colors and position
     const dotSize = 16; // px
@@ -53,9 +56,19 @@ const HomePages = () => {
         }
     }
 
+    function handleSubmitSearch() {
+        const trimmed = searchInput.trim();
+
+        if (trimmed) {
+        navigate(`/search-result/${trimmed.replace(/\s+/g, "+")}`);
+        } else {
+        navigate("/search-result");
+        }
+  }
+
     return (
         <div className="bg-[#fafafa]">
-            <Header />
+            <Header searchValue={searchInput} onSearchChange={setSearchInput} onSubmitSearch={handleSubmitSearch} />
             {showNotification && <Notification message="Same Day Delivery (London Only) - Order before 12 pm for same day dekivery. Avaible across selected London postcodes. Select this service at checkout" onClick={handleNotificationClose} />}
             <div className="relative">
                 <Slider ref={sliderRef} {...settings} className="">

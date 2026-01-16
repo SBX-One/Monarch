@@ -1,56 +1,94 @@
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import data from "../data/Data_Dummy.json"
+import { useState, useEffect } from "react";
+import Slider from "../assets/svg/sliders.svg"
+import arrow_down from "../assets/svg/chevron-down.svg"
 
+// import Product from "../components/ProductsResult.tsx";
+import HorizontalScroll from "../components/HorizontalScroll";
+import Header from "../components/Header";
+// import ProductResult from "../components/ProductsResult.tsx";
 
 export default function SearchResult() {
     const { query } = useParams();
-    const decodedQuery = query?.replace(/\+/g, " ").toLowerCase().trim();
-    const filteredProducts = data.ProductsResult.filter((item) => item.name.toLowerCase().includes(decodedQuery || ""));
+    const decodedQuery = query?.replace(/\+/g, " ").toLowerCase().trim() || "";
+    const [searchInput, setSearchInput] = useState("");
+    const navigate = useNavigate();
+    // const filteredProducts = data.ProductsResult.filter((item) => item.name.toLowerCase().includes(decodedQuery || ""));
 
-    const resolveImage = (path: string) => {
-        try {
-            return new URL(path, import.meta.url).href
-        } catch {
-            return path
+    useEffect(() => {
+        setSearchInput(decodedQuery);
+    }, [decodedQuery])
+
+    const filteredProducts = decodedQuery
+    ? data.ProductsResult.filter((product) =>
+        product.name.toLowerCase().includes(decodedQuery)
+      )
+    : data.ProductsResult;
+
+    function handleSubmitSearch() {
+        const trimmed = searchInput.trim();
+
+        if (trimmed) {
+            navigate(`/search-result/${trimmed.replace(/\s+/g, "+")}`);
+        } else {
+            navigate("/search-result");
         }
     }
 
+    const filterSettings = [
+        {
+            "Gender > Category" : [
+                "Women",
+                "Men",
+                "Unisex"
+            ]
+        },
+        {
+            "Offer" : [
+                "Christmas Sale",
+                "New Arrival"
+            ]
+        },
+        {
+            "Size" : [
+                "S",
+                "M",
+                "L",
+                "XL",
+                "XXL"
+            ]
+        },
+        {
+            "Color" : [
+                "Bright",
+                "Dark"
+            ]
+        }
+    ]
+
+
     return (
         <div>
-            <div className="px-10 py-10">
-            <h1 className="text-2xl font-bold mb-6">
-                Search result for "{decodedQuery}"
-            </h1>
-
-            {filteredProducts.length === 0 ? (
-                <p>No product found 😔</p>
-            ) : (
-                <div className="grid grid-cols-4 gap-6">
-                {filteredProducts.map((product) => (
-                    <div
-                    key={product.id}
-                    className="border rounded-xl p-4 hover:shadow-md transition"
-                    >
-                    <img
-                        src={resolveImage(product.image)}
-                        alt={product.name}
-                        className="mb-3"
-                    />
-                    <h2 className="font-medium">{product.name}</h2>
-                    <p className="text-sm text-gray-500 capitalize">
-                        {product.category.trim()}
-                    </p>
-                    <p className="mt-1 font-semibold">
-                        Rp {product.price.toLocaleString("id-ID")}
-                    </p>
-                    <span className="text-xs text-green-600">
-                        {product.eventType}
-                    </span>
-                    </div>
-                ))}
+            <Header searchValue={searchInput} onSearchChange={setSearchInput} onSubmitSearch={handleSubmitSearch} />
+            <div>
+                <div className="flex">
+                    <p className="small ml-10 mt-10 flex items-center gap-[16px]">monarch <div className="bg-[#dedede] w-[6px] h-[6px] rounded-full" /> <span className="text-[#A30303]">Search</span></p>
                 </div>
-            )}
+                <div className="flex ml-10 h-[24px] ">
+                    <img src={Slider} alt="slider" />
+                    <div className="flex">
+                        {filterSettings.map((item, i) => (
+                            <div className="flex gap-[8px] px-[16px] py-[16px] border border-[#]" key={i}>
+                                <h1>{Object.keys(item)[0]}</h1>
+                                <img src={arrow_down} alt="image" className="h-[24px]" />
+                            </div>
+                        ))}
+                    </div>
+                </div>
             </div>
+
+            <HorizontalScroll title={""} data={filteredProducts} imageHeight={"334px"} eventState={true} CustomEventName="Christmas Sale" CustomBackgroundEvent="#BC5249" scrollToggle={false} />
         </div>
     )
 }

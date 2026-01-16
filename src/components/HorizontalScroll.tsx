@@ -14,9 +14,10 @@ type HorizontalScrollProps = {
     CustomEventName?: string;
     CustomBackgroundEvent?: React.CSSProperties["backgroundColor"] | string;
     productSettings?: boolean;
+    scrollToggle?: boolean;
 }
 
-export default function HorizontalScroll({ title, data, customStyle, customStyle2, imageHeight, CustomTextStyle, eventState, CustomEventName, CustomBackgroundEvent, productSettings }: HorizontalScrollProps) {
+export default function HorizontalScroll({ title, data, customStyle, customStyle2, imageHeight, CustomTextStyle, eventState, CustomEventName, CustomBackgroundEvent, productSettings, scrollToggle = true }: HorizontalScrollProps) {
     const scrollRef = useRef<HTMLDivElement | null>(null);
     const [colorSetting, setColorSetting] = useState<number | null>(null);
 
@@ -27,7 +28,7 @@ export default function HorizontalScroll({ title, data, customStyle, customStyle
             left: dir === "left" ? -300 : 300,
             behavior: "smooth",
         });
-        console.log("scrolling", dir);
+        // console.log("scrolling", dir);
     }
 
     const resolveImage = (path: string) => {
@@ -53,10 +54,12 @@ export default function HorizontalScroll({ title, data, customStyle, customStyle
         <div className="mt-[80px] px-10">
                 <div className="flex justify-between">
                     <h1 className="large">{title}</h1>
-                    <div className="flex flex-row gap-[16px]">
-                        <img src={arrow} alt="arrow" className="h-[24px]" onClick={() => scroll("left")} />
-                        <img src={arrow} alt="arrow" className="rotate-180 h-[24px]" onClick={() => scroll("right")} />
-                    </div>
+                    {scrollToggle && (
+                        <div className="flex flex-row gap-[16px]">
+                            <img src={arrow} alt="arrow" className="h-[24px]" onClick={() => scroll("left")} />
+                            <img src={arrow} alt="arrow" className="rotate-180 h-[24px]" onClick={() => scroll("right")} />
+                        </div>
+                    )}
                 </div>
                     <div ref={scrollRef} className="mt-5 mb-5 overflow-x-hidden " style={customStyle || {}}>
                         <div className="flex items-center flex-nowrap" style={customStyle2 || {}}>

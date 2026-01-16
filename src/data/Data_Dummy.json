@@ -155,9 +155,12 @@
             "id" : 1,
             "name" :"2026 Diaries and Calendars",
             "category" :"clothes",
-            "price" : 2451000,
+            "price" : 1451000,
             "image" : "../assets/png/product_1.png",
-            "eventType" :"New Arrival"
+            "eventType" :"New Arrival",
+            "gender" : "Women",
+            "offer" : "New Arrival",
+            "size" : "S,M,L,XL" 
         },
         {
             "id" : 2,
@@ -165,7 +168,10 @@
             "category" :"clothes   ",
             "price" : 2451000,
             "image" : "../assets/png/product_1.png",
-            "eventType" :"New Arrival"
+            "eventType" :"Custom Event",
+            "gender" : "Men",
+            "offer" : "Christmas Sale",
+            "size" : "S,M,L,XL" 
         },
         {
             "id" : 3,
@@ -173,7 +179,9 @@
             "category" :"clothes   ",
             "price" : 2451000,
             "image" : "../assets/png/product_3.png",
-            "eventType" :"New Arrival"
+            "gender" : "Unisex",
+            "offer" : "none",
+            "size" : "S,M,L,XL" 
         },
         {
             "id" : 4,
@@ -181,7 +189,9 @@
             "category" :"clothes   ",
             "price" : 2451000,
             "image" : "../assets/png/product_4.png",
-            "eventType" :"New Arrival"
+            "gender" : "Women",
+            "offer" : "none",
+            "size" : "XXL" 
         }
     ]
 }

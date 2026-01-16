@@ -7,28 +7,27 @@ import x from "../assets/svg/x.svg"
 import clock from "../assets/svg/clock.svg"
 
 import { useState, useEffect } from "react"
-import { useNavigate } from "react-router-dom"
+// import { useNavigate } from "react-router-dom"
 
-export default function Header() {
+type HeaderProps = {
+    searchValue?: string;
+    onSearchChange?: (value: string) => void;
+    onSubmitSearch?: () => void
+}
+
+export default function Header({searchValue = "", onSearchChange, onSubmitSearch}: HeaderProps ) {
     const [deleteIcon, setDeleteIcon] = useState(false);
-    const [searchInput, setSearchInput] = useState("");
+    // const [searchInput, setSearchInput] = useState("");
     const [searchHistory, setSearchHistory] = useState<boolean>(false);
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     // const [searchValue, setSearchValue] = useState<String>("");
 
     useEffect(() => {
-        if (searchInput.length > 0) {
-            setDeleteIcon(true);
-        } else {
-            setDeleteIcon(false);
-        }
-
-        
-      
-    }, [searchInput])
+        setDeleteIcon(searchValue.length > 0);
+    }, [searchValue])
 
     function handleDeleteIcon() {
-        setSearchInput("");
+        onSearchChange?.("");
     }
 
     function handleSearch() {
@@ -57,13 +56,13 @@ export default function Header() {
         setSearchHistoryList([])
     }
 
-    function handleSubmitSearch() {
-        if (!searchInput.trim()) return;
+    // function handleSubmitSearch() {
+    //     // if (!searchInput.trim()) return;
         
-          const formattedQuery = searchInput.trim().replace(/\s+/g, "+");
-        navigate(`/search-result/${formattedQuery}`);
-        setSearchHistory(false);
-    }
+    //       const formattedQuery = searchInput.trim().replace(/\s+/g, "+");
+    //     navigate(`/search-result/${formattedQuery}`);
+    //     setSearchHistory(false);
+    // }
 
     return (
         <div>
@@ -75,7 +74,7 @@ export default function Header() {
                 <div className="flex flex-row bg-full flex-1 gap-[24px]">
                     <div className="flex flex-1 flex-row-reverse py-[10px] h-[44px] rounded-full px-[14px] bg-[#F4F4F4]">
                         {deleteIcon && <img src={x} alt="delete" onClick={handleDeleteIcon} />}
-                        <input type="text" value={searchInput} onFocus={handleSearch} onKeyDown={(e) => {if (e.key === "Enter") handleSubmitSearch()}} onChange={(e) => setSearchInput(e.target.value)}className="ml-[10px] w-full focus:outline-none" placeholder="Gomu-gomu sherpa fleece jacket" />
+                        <input type="text" value={searchValue} onFocus={handleSearch} onKeyDown={(e) => {if (e.key === "Enter") onSubmitSearch?.()}} onChange={(e) => onSearchChange?.(e.target.value)} className="ml-[10px] w-full focus:outline-none" placeholder="Gomu-gomu sherpa fleece jacket" />
                         <img src={search} alt="search" />
                     </div>
                     <img src={wishlist} alt="wishlist" />
@@ -89,7 +88,7 @@ export default function Header() {
                                         <h2 className="large">Trending</h2>
                                         <div className="flex gap-[8px] mt-[24px]">
                                             {TrendingSearch.map((item, i) => (
-                                                <div key={i} onClick={() => {setSearchInput(item); setSearchHistory(false)}} className="flex flex-row gap-[8px] border border-[#dedede] bg-white hover:bg-gray-300 cursor-default w-fit pl-[14px] pr-[20px] py-[8px] rounded-full">
+                                                <div key={i} onClick={() => {onSearchChange?.(item); setSearchHistory(false)}} className="flex flex-row gap-[8px] border border-[#dedede] bg-white hover:bg-gray-300 cursor-default w-fit pl-[14px] pr-[20px] py-[8px] rounded-full">
                                                     <img src={search} alt="trending search" />
                                                     <p>{item}</p>
                                                 </div>
