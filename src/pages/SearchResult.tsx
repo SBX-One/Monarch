@@ -18,10 +18,10 @@ type Size = "S" | "M" | "L" | "XL" | "XXL";
 type Color = "Bright" | "Dark";
 
 type ActiveFilters = {
-  gender: Gender | null;
-  offer: Offer | null;
-  size: Size | null;
-  color: Color | null;
+    gender: Gender | null;
+    offer: Offer | null;
+    size: Size | null;
+    color: Color | null;
 };
 
 export default function SearchResult() {
@@ -30,17 +30,17 @@ export default function SearchResult() {
     const [searchInput, setSearchInput] = useState("");
     const navigate = useNavigate();
     const [activeFilters, setActiveFilter] = useState<ActiveFilters>({
-        size : null,
-        gender : null,
-        color : null,
-        offer : null
+        size: null,
+        gender: null,
+        color: null,
+        offer: null
     })
     // const filteredProducts = data.ProductsResult.filter((item) => item.name.toLowerCase().includes(decodedQuery || ""));
 
-  function handleFilterChange<K extends keyof ActiveFilters>(
+    function handleFilterChange<K extends keyof ActiveFilters>(
         key: K,
         value: ActiveFilters[K]
-        ) {
+    ) {
         setActiveFilter(prev => ({
             ...prev,
             [key]: value,
@@ -72,7 +72,7 @@ export default function SearchResult() {
             matchSearch &&
             matchGender &&
             matchOffer &&
-            matchSize 
+            matchSize
             // matchColor
         );
     });
@@ -119,13 +119,13 @@ export default function SearchResult() {
                                 onSelect={(val) =>
                                     handleFilterChange(filter.key, val)
                                 }
-                                />
+                            />
                         ))}
                     </div>
                 </div>
             </div>
 
-            <HorizontalScroll title={""} data={filteredProducts} customStyle2={{ justifyContent : "space-between"}} imageHeight={"334px"} eventState={true} CustomEventName="Christmas Sale" CustomBackgroundEvent="#BC5249" scrollToggle={false} />
+            <HorizontalScroll title={""} data={filteredProducts} customStyle2={{ justifyContent: "space-between" }} imageHeight={"334px"} eventState={true} CustomEventName="Christmas Sale" CustomBackgroundEvent="#BC5249" scrollToggle={false} />
         </div>
     )
 }
