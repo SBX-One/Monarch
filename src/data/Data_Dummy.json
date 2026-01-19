@@ -168,7 +168,35 @@
             ],
             "stock": 14,
             "NormalPrice": 2451000,
-            "MaintainingInstruction" : "Hand wash, Dry clean, Do not tumble dry." 
+            "MaintainingInstruction" : "Hand wash, Dry clean, Do not tumble dry.",
+            "FeatureContent" : [
+                {
+                    "name" : "Made from 100% smooth and comfortable cotton",
+                    "image" : "../assets/png/product_1.png"
+                },
+                {
+                    "name" : "Clean and smooth texture",
+                    "image" : "../assets/png/product_2.png" 
+                }
+            ],
+            "Detail" : [
+                "- collared design from a unique style",
+                "- Relaxed sillhoute",
+                {
+                    "Function Detail" : [
+                        "- Tranparant: Not Tranparant",
+                        "- Fit: Relaxed",
+                        "- Pockets: None",
+                        "- Some product colors may not be available"
+                    ]
+                },
+                "product Code: 484503"
+            ],
+            "Production" : {
+                "name" : "Production information",
+                "country" : "Indonesia",
+                "description" : "We are continuously working to improve our production process verification, both internally and through third parties, to fully understand the origins of our raw materials, where we spin our yarn, where we produce our fabrics, and where we sew, knit, and finish our garments. This verification helps us improve the quality of our garments while ensuring safer manufacturing practices. We will continue to share this information so our customers can make more informed decisions about their clothing."
+            }
         },
         {
             "id": 2,

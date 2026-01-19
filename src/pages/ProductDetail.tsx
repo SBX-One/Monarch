@@ -26,6 +26,16 @@ type Product = {
     maintaining?: boolean;
     maintainingInstruction?: string;
     NormalPrice?: number;
+    FeatureContent?: {
+        name: string;
+        image: string;
+    }[];
+    Detail?: (string | { "Function Detail": string[] })[];
+    Production?: {
+        name: string;
+        country: string;
+        description: string;
+    }
 }
 
 const ProductDetail = () => {
@@ -37,6 +47,9 @@ const ProductDetail = () => {
     const [selectedSize, setSelectedSize] = useState<string>("");
     const [itemCounter, setItemCounter] = useState<number>(1);
     const [maintaining, setMaintaining] = useState<boolean>(true);
+    const [feature, setFeature] = useState<boolean>(true);
+    const [detail, setDetail] = useState<boolean>(true);
+    const [production, setProduction] = useState<boolean>(true);
 
     useEffect(() => {
         // Find product from ProductsResult array
@@ -234,7 +247,7 @@ const ProductDetail = () => {
             
             <section id="instruction">
                 {maintaining && (
-                    <div className="w-2/3 mt-[80px]">
+                    <div className="w-2/3 mt-[80px]" >
                         <div className="flex justify-between pt-[16px] pb-[20px] px-[20px] border border-[#dedede] rounded-t-[12px]">
                             <p className="large">Maintaining Instruction</p>
                             <img src={x} alt="x" onClick={() => setMaintaining(false)} />
@@ -247,9 +260,74 @@ const ProductDetail = () => {
             </section>
 
             <section>
-                <div className="mt-[80px]">
+                <div className="mt-[80px] pb-[24px] border-b border-[#dedede] w-2/3" onClick={() => setDetail(!detail)}>
                     <h1 className="large">Description</h1>
                     <p className="body-regular mt-2">Product Code: {product.id}</p>
+                </div>
+                <div>
+                    <div className="flex justify-between w-2/3 py-[16px]" onClick={() => setFeature(!feature)}>
+                        <h1 className="large">Feature</h1>
+                        <img src={minus} alt="minus" />
+                    </div>
+                    <div className="w-2/3">
+                        {feature && (
+                            <div className="flex flex-row gap-[24px] pb-[24px] border-b border-[#dedede]">
+                                {product.FeatureContent?.map((item, i) => (
+                                    <div key={i} className="flex flex-row gap-[16px]">
+                                        <img className="h-[209px] w-fit" src={resolveImage(item.image)} alt={item.name} />
+                                        <p className="body-regular w-[209px]">{item.name}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+                    <div>
+                        <div className="flex justify-between w-2/3 py-[16px]" onClick={() => setDetail(!detail)}>
+                            <h1 className="large">Detail</h1>
+                            <img src={minus} alt="minus" />
+                        </div>
+                        <div className="w-2/3">
+                            {detail && (
+                                <div className="flex flex-col gap-4 pb-[24px] border-b border-[#dedede]">
+                                    {product.Detail?.map((item, i) => {
+                                        if (typeof item === 'string') {
+                                            return (
+                                                <p key={i} className="body-regular text-[#6C6B69]">{item}</p>
+                                            );
+                                        } else if (typeof item === 'object' && 'Function Detail' in item) {
+                                            return (
+                                                <div key={i} className="flex flex-col gap-2 mt-2">
+                                                    <p className="body-regular">Function Detail</p>
+                                                    {item['Function Detail'].map((detail, j) => (
+                                                        <p key={j} className="body-regular text-[#6C6B69]">{detail}</p>
+                                                    ))}
+                                                </div>
+                                            );
+                                        }
+                                        return null;
+                                    })}
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div className="flex justify-between w-2/3 py-[16px]" onClick={() => setProduction(!production)}>
+                        <h1 className="large">Production</h1>
+                        <img src={minus}  alt="" />
+                    </div>
+                    <div className="w-2/3">
+                        {production && product.Production && (
+                            <div className="flex flex-col gap-4 pb-[24px] border-b border-[#dedede]">
+                                <p className="body-regular">{product.Production.name}</p>
+                                <div className="flex gap-2">
+                                    <p className="body-regular">Country/Country of Production:</p>
+                                    <p className="body-regular text-[#6C6B69]">{product.Production.country}</p>
+                                </div>
+                                <p className="body-regular text-[#6C6B69] w-3/4">{product.Production.description}</p>
+                            </div>
+                        )}
+                    </div>
                 </div>
             </section>
             </div>
