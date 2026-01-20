@@ -1,0 +1,56 @@
+[
+    {
+        "id" : 1,
+        "comment_id" : 4550584836282,
+        "star" : 5,
+        "title" : "Perfect fit for cold weather",
+        "description" : "Perfect material and nice cutting. Wore it to country -30c together with heattech, it's well warm and protected. One of the best so far",
+        "detail" : {
+            "Size" : "S",
+            "Color" : "Black"
+        },
+        "profileUser" : {
+            "name" : "Dyven Siaw",
+            "gender" : "Male",
+            "age" : "16",
+            "height" : "165cm",
+            "weight" : "50kg"
+        }
+    },
+    {
+        "id" : 1,
+        "comment_id" : 4550584836282,
+        "star" : 5,
+        "title" : "Perfect fit for cold weather",
+        "description" : "Perfect material and nice cutting. Wore it to country -30c together with heattech, it's well warm and protected. One of the best so far",
+        "detail" : {
+            "Size" : "S",
+            "Color" : "Black"
+        },
+        "profileUser" : {
+            "name" : "Dyven Siaw",
+            "gender" : "Male",
+            "age" : "16",
+            "height" : "165cm",
+            "weight" : "50kg"
+        }
+    },
+    {
+        "id" : 1,
+        "comment_id" : 4550584836282,
+        "star" : 4,
+        "title" : "Perfect fit for cold weather",
+        "description" : "Perfect material and nice cutting. Wore it to country -30c together with heattech, it's well warm and protected. One of the best so far",
+        "detail" : {
+            "Size" : "S",
+            "Color" : "Black"
+        },
+        "profileUser" : {
+            "name" : "Dyven Siaw",
+            "gender" : "Male",
+            "age" : "16",
+            "height" : "165cm",
+            "weight" : "50kg"
+        }
+    }
+]

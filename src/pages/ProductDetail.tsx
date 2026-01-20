@@ -11,6 +11,11 @@ import shareIcon from "../assets/svg/share-2.svg"
 import starIcon from "../assets/svg/star.svg"
 import x from "../assets/svg/x.svg"
 
+import starRating from "../assets/svg/star_rating.svg"
+import starRatingEmpty from "../assets/svg/star_rating_empty.svg"
+
+import komentar from "../data/KomentarDummy.json"
+
 type Product = {
     id: number;
     name: string;
@@ -327,6 +332,38 @@ const ProductDetail = () => {
                                 <p className="body-regular text-[#6C6B69] w-3/4">{product.Production.description}</p>
                             </div>
                         )}
+                    </div>
+                </div>
+            </section>
+
+            <section id="comment">
+                <div>
+                    <div>
+                        {komentar.map((item, i) => (
+                            <div key={i}>
+                                <h1>{item.title}</h1>
+                                <div className="flex gap-[4px] mb-[12px]">
+                                    {[...Array(5)].map((_, index) => (
+                                        <img 
+                                            key={index} 
+                                            src={index < item.star ? starRating : starRatingEmpty} 
+                                            alt="star"
+                                            className="w-[16px] h-[16px]"
+                                        />
+                                    ))}
+                                    <h1>{item.star}.0</h1>
+                                </div>
+                                <div>
+                                    <div>
+                                        <img src={ruler} alt="ruler" />
+                                        <h1>Size: {item.detail.Size}</h1>
+                                    </div>
+                                    <div>
+                                        <h1>Color: {item.detail.Color}</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>
