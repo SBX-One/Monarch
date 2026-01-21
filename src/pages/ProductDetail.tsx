@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 import { useState, useEffect } from "react"
 import Header from "../components/Header"
 import Footer from "../components/Footer"
@@ -13,6 +13,7 @@ import x from "../assets/svg/x.svg"
 
 import starRating from "../assets/svg/star_rating.svg"
 import starRatingEmpty from "../assets/svg/star_rating_empty.svg"
+import HorizontalScroll from "../components/HorizontalScroll"
 
 import komentar from "../data/KomentarDummy.json"
 
@@ -41,11 +42,12 @@ type Product = {
         country: string;
         description: string;
     }
+    MaintainingInstruction?: string;
 }
 
 const ProductDetail = () => {
     const { id } = useParams();
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const [product, setProduct] = useState<Product | null>(null);
     const [selectedImage, setSelectedImage] = useState<string>("");
     const [selectedColor, setSelectedColor] = useState<string>("");
@@ -102,7 +104,7 @@ const ProductDetail = () => {
             <div className="px-10 py-10">
                 <div className="flex">
                     <p className="small flex items-center gap-[16px]">
-                        monarch
+                        <Link to="/" className="hover:text-[#A30303]">monarch</Link>
                         <div className="bg-[#dedede] w-[6px] h-[6px] rounded-full" />
                         <span className="text-[#A30303]">{product.name}</span>
                     </p>
@@ -337,12 +339,14 @@ const ProductDetail = () => {
             </section>
 
             <section id="comment">
-                <div>
-                    <div>
+                <div className="w-2/3">
+                    <div className="mt-[24px]">
                         {komentar.map((item, i) => (
-                            <div key={i}>
-                                <h1>{item.title}</h1>
-                                <div className="flex gap-[4px] mb-[12px]">
+                            <div key={i} className="border-b border-[#dedede] mt-[24px]">
+                                {/* title comment */}
+                                <h1 className="header-3-medium">"{item.title}"</h1>
+                                {/* star rating */}
+                                <div className="flex gap-[4px] mb-[12px] mt-[16px] relative w-fit">
                                     {[...Array(5)].map((_, index) => (
                                         <img 
                                             key={index} 
@@ -351,16 +355,36 @@ const ProductDetail = () => {
                                             className="w-[16px] h-[16px]"
                                         />
                                     ))}
-                                    <h1>{item.star}.0</h1>
+                                    <h1 className="-bottom-1 absolute -right-[32px]">{item.star}.0</h1>
                                 </div>
                                 <div>
-                                    <div>
-                                        <img src={ruler} alt="ruler" />
-                                        <h1>Size: {item.detail.Size}</h1>
+                                    {/* detail komen */}
+                                    <div className="flex gap-2 flex-col my-[24px]">
+                                        <div className="flex gap-2">
+                                            <img src={ruler} alt="ruler" />
+                                            <h1 className="text-[#6C6B69]">Size: {item.detail.Size}</h1>
+                                        </div>
+                                        <div className="flex gap-2 ml-1 relative">
+                                            {/* <img src={ruler} alt="ruler" /> */}
+                                            <div className="w-[16px] h-[16px] rounded-full bg-black" />
+                                            <h1 className="text-[#6C6B69] relative bottom-1">Color: {item.detail.Color}</h1>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <h1>Color: {item.detail.Color}</h1>
+                                    <div className="py-[16px] px-[20px] border border-[#dedede] rounded-[12px]">
+                                        <p className="body-regular text-[#6C6B69]">{item.description}</p>
                                     </div>
+                                </div>
+                                {/* komen user profile */}
+                                <div className="flex gap-[16px] text-[#6C6B69] mt-[24px] w-fit ml-auto items-center mb-[40px]">
+                                    <p>{item.profileUser.name}</p>
+                                    <div className="w-[6px] h-[6px] bg-[#dedede] rounded-full" />
+                                    <p>{item.profileUser.gender}</p>
+                                    <div className="w-[6px] h-[6px] bg-[#dedede] rounded-full" />
+                                    <p>{item.profileUser.age}</p>
+                                    <div className="w-[6px] h-[6px] bg-[#dedede] rounded-full" />
+                                    <p>{item.profileUser.height}</p>
+                                    <div className="w-[6px] h-[6px] bg-[#dedede] rounded-full" />
+                                    <p>{item.profileUser.weight}</p>
                                 </div>
                             </div>
                         ))}
@@ -368,6 +392,13 @@ const ProductDetail = () => {
                 </div>
             </section>
             </div>
+            <section>
+                <div className="">
+                    <HorizontalScroll productSettings={true} CustomBackgroundEvent="#BC5249" CustomEventName="Christmas Sale" eventState={true} title={"Similiar Products"} data={data.products} customStyle={{marginRight : "-40px", marginLeft : "-40px", paddingLeft : "40px"}} customStyle2={{justifyContent: "space-between", maxHeight: "500px", minHeight: "448px"}} imageHeight={"301px"} CustomTextStyle={{ width : "250px", textAlign : "center"}} />
+                    <HorizontalScroll productSettings={true} CustomBackgroundEvent="#BC5249" CustomEventName="Christmas Sale" eventState={true} title={"Style With"} data={data.products} customStyle={{marginRight : "-40px", marginLeft : "-40px", paddingLeft : "40px"}} customStyle2={{justifyContent: "space-between", maxHeight: "500px", minHeight: "448px"}} imageHeight={"301px"} CustomTextStyle={{ width : "250px", textAlign : "center"}} />
+                    <HorizontalScroll productSettings={true} CustomBackgroundEvent="#BC5249" CustomEventName="Christmas Sale" eventState={true} title={"Recently Viewed"} data={data.products} customStyle={{marginRight : "-40px", marginLeft : "-40px", paddingLeft : "40px"}} customStyle2={{justifyContent: "space-between", maxHeight: "500px", minHeight: "448px"}} imageHeight={"301px"} CustomTextStyle={{ width : "250px", textAlign : "center"}} />
+                </div>
+            </section>
             <Footer />
         </div>
     )
