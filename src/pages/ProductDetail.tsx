@@ -14,6 +14,7 @@ import x from "../assets/svg/x.svg"
 import starRating from "../assets/svg/star_rating.svg"
 import starRatingEmpty from "../assets/svg/star_rating_empty.svg"
 import HorizontalScroll from "../components/HorizontalScroll"
+import AddedCart from "../components/AddedCart"
 
 import komentar from "../data/KomentarDummy.json"
 
@@ -57,6 +58,7 @@ const ProductDetail = () => {
     const [feature, setFeature] = useState<boolean>(true);
     const [detail, setDetail] = useState<boolean>(true);
     const [production, setProduction] = useState<boolean>(true);
+    const [wishlist, setWishlist] = useState<boolean>(false);
 
     useEffect(() => {
         // Find product from ProductsResult array
@@ -100,11 +102,12 @@ const ProductDetail = () => {
 
     return (
         <div>
+            <AddedCart itemCounter={itemCounter} name={} />
             <Header />
             <div className="px-10 py-10">
                 <div className="flex">
                     <p className="small flex items-center gap-[16px]">
-                        <Link to="/" className="hover:text-[#A30303]">monarch</Link>
+                        <Link to="/search-result" className="hover:text-[#A30303]">monarch</Link>
                         <div className="bg-[#dedede] w-[6px] h-[6px] rounded-full" />
                         <span className="text-[#A30303]">{product.name}</span>
                     </p>
@@ -240,13 +243,13 @@ const ProductDetail = () => {
                                 <img src={messageIcon} alt="message" />
                                 <p className="label text-[#585858]">Message</p>
                             </div>
+                            <div className="flex gap-4 p-[8px]" onClick={() => setWishlist(!wishlist)}>
+                                <img src={starIcon} alt="star" />
+                                <p className="label text-[#585858]">Wishlist</p>
+                            </div>
                             <div className="flex gap-4 p-[8px]">
                                 <img src={shareIcon} alt="share" />
                                 <p className="label text-[#585858]">Share</p>
-                            </div>
-                            <div className="flex gap-4 p-[8px]">
-                                <img src={starIcon} alt="star" />
-                                <p className="label text-[#585858]">Save</p>
                             </div>
                         </div>
                     </div>
