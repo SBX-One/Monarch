@@ -16,9 +16,11 @@ type HorizontalScrollProps = {
     CustomBackgroundEvent?: React.CSSProperties["backgroundColor"] | string;
     productSettings?: boolean;
     scrollToggle?: boolean;
+    marginTop?: React.CSSProperties["marginTop"] | string;
+    marginX?: string;
 }
 
-export default function HorizontalScroll({ title, data, customStyle, customStyle2, imageHeight, CustomTextStyle, eventState, CustomEventName, CustomBackgroundEvent, productSettings, scrollToggle = true }: HorizontalScrollProps) {
+export default function HorizontalScroll({ marginTop, marginX, title, data, customStyle, customStyle2, imageHeight, CustomTextStyle, eventState, CustomEventName, CustomBackgroundEvent, productSettings, scrollToggle = true }: HorizontalScrollProps) {
     const scrollRef = useRef<HTMLDivElement | null>(null);
     const [colorSetting, setColorSetting] = useState<number | null>(null);
     const navigate = useNavigate();
@@ -58,7 +60,7 @@ export default function HorizontalScroll({ title, data, customStyle, customStyle
     }
 
     return (
-        <div className="mt-[80px] px-10">
+        <div className={`px-[${marginX}]`} style={{ marginTop }}>
             <div className="flex justify-between">
                 <h1 className="large">{title}</h1>
                 {scrollToggle && (
@@ -68,8 +70,8 @@ export default function HorizontalScroll({ title, data, customStyle, customStyle
                     </div>
                 )}
             </div>
-            <div ref={scrollRef} className="mt-5 mb-5 overflow-x-hidden " style={customStyle || {}}>
-                <div className="flex items-center flex-nowrap" style={customStyle2 || {}}>
+            <div ref={scrollRef} className="mt-[24px] mb-5 overflow-x-hidden " style={customStyle || {}}>
+                <div className="flex items-center flex-nowrap " style={customStyle2 || {}}>
                     {data?.map((item, index) => (
                         <div
                             key={index}
@@ -77,8 +79,8 @@ export default function HorizontalScroll({ title, data, customStyle, customStyle
                             style={{ minWidth: 240, marginRight: 8 }}
                             onClick={() => handleProductClick(item.id)}
                         >
-                            {item.price !== undefined && <h2 className="mb-2 mx-auto large" style={CustomTextStyle}>{formatPrice(item.price)}.00 IDR</h2>}
-                            <h2 className="mb-2 mx-auto body-regular" style={CustomTextStyle}>{item.name}</h2>
+                            {item.price !== undefined && <h2 className="mb-2 large" style={CustomTextStyle}>{formatPrice(item.price)}.00 IDR</h2>}
+                            <h2 className="mb-2 body-regular" style={CustomTextStyle}>{item.name}</h2>
                             {/* <h2 className="mb-2 mx-auto" style={CustomTextStyle}>{item.price}</h2> */}
                             <div
                                 style={{
@@ -125,7 +127,6 @@ export default function HorizontalScroll({ title, data, customStyle, customStyle
                     ))}
                 </div>
             </div>
-
         </div>
     )
 }

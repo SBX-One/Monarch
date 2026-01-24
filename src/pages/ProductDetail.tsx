@@ -51,14 +51,40 @@ const ProductDetail = () => {
     // const navigate = useNavigate();
     const [product, setProduct] = useState<Product | null>(null);
     const [selectedImage, setSelectedImage] = useState<string>("");
-    const [selectedColor, setSelectedColor] = useState<string>("");
-    const [selectedSize, setSelectedSize] = useState<string>("");
+    const [selectedColor, setSelectedColor] = useState<string>("Black");
+    const [selectedSize, setSelectedSize] = useState<string>("M");
     const [itemCounter, setItemCounter] = useState<number>(1);
     const [maintaining, setMaintaining] = useState<boolean>(true);
     const [feature, setFeature] = useState<boolean>(true);
     const [detail, setDetail] = useState<boolean>(true);
     const [production, setProduction] = useState<boolean>(true);
     const [wishlist, setWishlist] = useState<boolean>(false);
+
+    useEffect(() => {
+        if (!wishlist) return;
+
+        const scrollY = window.scrollY;
+
+        // balikin view ke atas biar modal konsisten
+        window.scrollTo({ top: 0 });
+
+        document.body.style.position = "fixed";
+        document.body.style.top = `-${scrollY}px`;
+        document.body.style.left = "0";
+        document.body.style.right = "0";
+        document.body.style.width = "100%";
+
+        return () => {
+            document.body.style.position = "";
+            document.body.style.top = "";
+            document.body.style.left = "";
+            document.body.style.right = "";
+            document.body.style.width = "";
+
+            window.scrollTo(0, scrollY);
+        };
+    }, [wishlist]);
+
 
     useEffect(() => {
         // Find product from ProductsResult array
@@ -102,7 +128,18 @@ const ProductDetail = () => {
 
     return (
         <div>
-            <AddedCart itemCounter={itemCounter} name={} />
+            {wishlist && (
+                <AddedCart
+                    productImage={product.image}
+                    productName={product.name}
+                    quantity={itemCounter}
+                    price={product.price}
+                    size={selectedSize}
+                    color={selectedColor}
+                    onClose={() => setWishlist(false)}
+                    wishlist={true}
+                />
+            )}
             <Header />
             <div className="px-10 py-10">
                 <div className="flex">
@@ -113,7 +150,7 @@ const ProductDetail = () => {
                     </p>
                 </div>
 
-                <div className="flex gap-10 mt-10">
+                <div className="flex gap-10 mt-10 ">
                     {/* Product Images */}
                     <div className="w-auto">
                         <div
@@ -141,7 +178,7 @@ const ProductDetail = () => {
                     </div>
 
                     {/* Product Details */}
-                    <div className="w-[426px]">
+                    <div className="w-[426px] ">
                         {product.offer && product.offer !== "none" && (
                             <div className="mb-6">
                                 <div className="bg-[#BC5249] text-white px-4 py-2 w-fit rounded-full">
@@ -209,7 +246,7 @@ const ProductDetail = () => {
                             <p className="label text-[#6C6B69]">Size Charts</p>
                         </div>
                     </div>
-                    <div className="w-[426px] px-[24px] py-[20px] border border-[#dedede] h-fit">
+                    <div className="w-[426px] px-[24px] py-[20px] border border-[#dedede] h-fit ml-auto">
                         <h1 className="large">Set amount and notes</h1>
 
                         <div className="flex items-center gap-4 mt-[24px] pb-[24px] border border-b-[#dedede] border-x-[#00000000] border-t-[#00000000]">
@@ -235,7 +272,7 @@ const ProductDetail = () => {
                             </div>
                         </div>
                         <div className="flex flex-col gap-2 mt-[24px]">
-                            <button className="text-white bg-[#0A0805] w-full h-[56px]">Add to Cart</button>
+                            <button className="text-white bg-[#0A0805] w-full h-[56px]"  onClick={() => {setWishlist(!wishlist)}}>Add to Cart</button>
                             <button className="text-[#0A0805] border border-[#dedede] w-full h-[56px]">Buy Now</button>
                         </div>
                         <div className="flex items-center justify-between w-full mt-[24px]">
@@ -243,7 +280,7 @@ const ProductDetail = () => {
                                 <img src={messageIcon} alt="message" />
                                 <p className="label text-[#585858]">Message</p>
                             </div>
-                            <div className="flex gap-4 p-[8px]" onClick={() => setWishlist(!wishlist)}>
+                            <div className="flex gap-4 p-[8px]">
                                 <img src={starIcon} alt="star" />
                                 <p className="label text-[#585858]">Wishlist</p>
                             </div>

@@ -91,7 +91,7 @@ const HomePages = () => {
                     ))}
                 </div>
             </div>
-            <HorizontalScroll title={"Highlights"} data={Data.categories} customStyle={{marginRight : "-40px", marginLeft : "-40px", paddingLeft : "40px"}} customStyle2={{gap : "8px"}} imageHeight={"310px"} />
+            <HorizontalScroll marginTop={"80px"} marginX={"40px"} title={"Highlights"} data={Data.categories} customStyle={{marginRight : "-40px", marginLeft : "-40px", paddingLeft : "40px"}} customStyle2={{gap : "8px"}} imageHeight={"310px"} />
             <div
                 className="w-full h-[496px] flex items-center pl-[98px] my-[80px]"
                 style={{
@@ -114,11 +114,11 @@ const HomePages = () => {
             </div>
 
             <section>
-                <HorizontalScroll title={"Our Latest Collections"} data={Data.LatestCollections} customStyle2={{justifyContent: "space-between", maxHeight: "500px", minHeight: "448px"}} imageHeight={"448px"} />
+                <HorizontalScroll marginTop={"80px"} marginX={"40px"} title={"Our Latest Collections"} data={Data.LatestCollections} customStyle2={{justifyContent: "space-between", maxHeight: "500px", minHeight: "448px"}} imageHeight={"448px"} />
             </section>
 
             <section>
-                <HorizontalScroll productSettings={true} CustomBackgroundEvent="#BC5249" CustomEventName="Christmas Sale" eventState={true} title={"Recomended For You"} data={Data.products} customStyle={{marginRight : "-40px", marginLeft : "-40px", paddingLeft : "40px"}} customStyle2={{justifyContent: "space-between", maxHeight: "500px", minHeight: "448px"}} imageHeight={"301px"} CustomTextStyle={{ width : "250px", textAlign : "center"}} />
+                <HorizontalScroll marginTop={"80px"} marginX={"40px"} productSettings={true} CustomBackgroundEvent="#BC5249" CustomEventName="Christmas Sale" eventState={true} title={"Recomended For You"} data={Data.products} customStyle={{marginRight : "-40px", marginLeft : "-40px", paddingLeft : "40px"}} customStyle2={{justifyContent: "space-between", maxHeight: "500px", minHeight: "448px"}} imageHeight={"301px"} CustomTextStyle={{ width : "250px", textAlign : "center"}} />
             </section>
 
             <section className="mx-10 mt-[80px]">
@@ -147,7 +147,7 @@ const HomePages = () => {
                 </div>
             </section>
             <section>
-                <HorizontalScroll title={"Trending Now"} data={Data["Explore More"]} customStyle={{marginRight : "-40px", marginLeft : "-40px", paddingLeft : "40px"}} customStyle2={{justifyContent: "space-between", maxHeight: "500px", minHeight: "310px"}} imageHeight={"310px"} />
+                <HorizontalScroll marginTop={"80px"} marginX={"40px"} title={"Trending Now"} data={Data["Explore More"]} customStyle={{marginRight : "-40px", marginLeft : "-40px", paddingLeft : "40px"}} customStyle2={{justifyContent: "space-between", maxHeight: "500px", minHeight: "310px"}} imageHeight={"310px"} />
             </section>
             <section>
                 <div className="mx-10">
