@@ -80,7 +80,7 @@ export default function HorizontalScroll({ marginTop, marginX, title, data, cust
                             onClick={() => handleProductClick(item.id)}
                         >
                             {item.price !== undefined && <h2 className="mb-2 large" style={CustomTextStyle}>{formatPrice(item.price)}.00 IDR</h2>}
-                            <h2 className="mb-2 body-regular" style={CustomTextStyle}>{item.name}</h2>
+                            <h2 className="mb-2 body-regular w-[70%]" style={CustomTextStyle}>{item.name}</h2>
                             {/* <h2 className="mb-2 mx-auto" style={CustomTextStyle}>{item.price}</h2> */}
                             <div
                                 style={{

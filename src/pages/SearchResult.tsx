@@ -5,7 +5,8 @@ import Slider from "../assets/svg/sliders.svg"
 // import arrow_down from "../assets/svg/chevron-down.svg"
 
 // import Product from "../components/ProductsResult.tsx";
-import HorizontalScroll from "../components/HorizontalScroll";
+// import HorizontalScroll from "../components/HorizontalScroll";
+import ProductResult from "../components/ProductResult";
 import Header from "../components/Header";
 import FILTER_CONFIG from "../components/FilterConfig";
 // import { FilterConfig } from "../components/FilterConfig";
@@ -107,7 +108,7 @@ export default function SearchResult() {
                 <div className="flex">
                     <p className="small ml-10 mt-10 flex items-center gap-[16px]">monarch <div className="bg-[#dedede] w-[6px] h-[6px] rounded-full" /> <span className="text-[#A30303]">Search</span></p>
                 </div>
-                <div className="flex ml-10 h-[24px] items-center mt-[24px] ">
+                <div className="flex ml-10 h-[24px] items-center mt-[24px] pb-[48px] border-b border-[#dedede]">
                     <img src={Slider} alt="slider" className="mr-[24px]" />
                     <div className="flex gap-[8px]">
                         {FILTER_CONFIG.map(filter => (
@@ -125,7 +126,7 @@ export default function SearchResult() {
                 </div>
             </div>
 
-            <HorizontalScroll title={""} data={filteredProducts} customStyle2={{ justifyContent: "space-between" }} imageHeight={"334px"} eventState={true} CustomEventName="Christmas Sale" CustomBackgroundEvent="#BC5249" scrollToggle={false} />
+            <ProductResult title="" data={filteredProducts} imageHeight="334px" justify="between" textWidth="300px" marginYText="16px" marginTopProduct="24px" />
         </div>
     )
 }
