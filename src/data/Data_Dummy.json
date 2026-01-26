@@ -229,5 +229,25 @@
             "offer": "none",
             "size": "XXL"
         }
+    ],
+    "Cart": [
+        {
+            "id": 1,
+            "name": "Men's Water‐Repellent Down Packable Hooded Jacket",
+            "category": "clothes",
+            "price": 2451000,
+            "image": "../assets/png/product_1.png",
+            "size": "S",
+            "color": "Black"
+        },
+        {
+            "id": 1,
+            "name": "Unisex Double Weave Hakama Trousers",
+            "category": "clothes",
+            "price": 2451000,
+            "image": "../assets/png/product_1.png",
+            "size": "S",
+            "color" : "Black"
+        }
     ]
 }

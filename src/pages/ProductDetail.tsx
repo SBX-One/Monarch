@@ -329,7 +329,7 @@ const ProductDetail = () => {
                         )}
                     </div>
                     <div>
-                        <div className="flex justify-between w-2/3 py-[16px]" onClick={() => setDetail(!detail)}>
+                        <div className="flex justify-between w-2/3 py-[16px ]" onClick={() => setDetail(!detail)}>
                             <h1 className="large">Detail</h1>
                             <img src={minus} alt="minus" />
                         </div>

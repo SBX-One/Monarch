@@ -67,7 +67,7 @@ const HomePages = () => {
   }
 
     return (
-        <div className="bg-[#fafafa]">
+        <div className="bg-[#fafafa] ">
             <Header searchValue={searchInput} onSearchChange={setSearchInput} onSubmitSearch={handleSubmitSearch} />
             {showNotification && <Notification message="Same Day Delivery (London Only) - Order before 12 pm for same day dekivery. Avaible across selected London postcodes. Select this service at checkout" onClick={handleNotificationClose} />}
             <div className="relative">

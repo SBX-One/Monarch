@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePages from "./pages/HomePage";
 import SearchResult from "./pages/SearchResult";
 import ProductDetail from "./pages/ProductDetail";
+import Cart from "./pages/Cart";
 function App() {
   return (
     <>
@@ -12,6 +13,7 @@ function App() {
           <Route path="/search-result/:query" element={<SearchResult />} />
           <Route path="/search-result/" element={<SearchResult />} />
           <Route path="/product/:id" element={<ProductDetail />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
       </BrowserRouter>
     </>
