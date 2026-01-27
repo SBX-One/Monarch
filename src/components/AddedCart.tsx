@@ -3,6 +3,7 @@ import ruler from "../assets/svg/ruler.svg";
 
 import HorizontalScroll from "./HorizontalScroll";
 import data from "../data/Data_Dummy.json";
+import { Link } from "react-router-dom";
 
 type AddedCartProps = {
   productImage: string;
@@ -58,9 +59,11 @@ const AddedCart = ({
             </button>
             <button className="flex items-center gap-[8px] bg-black px-[24px] py-[16px] rounded-full">
               <img src={cart} alt="" />
-              <h1 className="label text-white">
-                {wishlist ? "View Wishlist" : "View Cart"}
-              </h1>
+              <Link to="/cart">
+                <h1 className="label text-white">
+                  {"View Cart"}
+                </h1>
+              </Link>
             </button>
           </div>
         </div>
