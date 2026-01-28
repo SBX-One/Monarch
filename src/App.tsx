@@ -4,6 +4,7 @@ import HomePages from "./pages/HomePage";
 import SearchResult from "./pages/SearchResult";
 import ProductDetail from "./pages/ProductDetail";
 import Cart from "./pages/Cart";
+
 function App() {
   return (
     <>

@@ -74,7 +74,7 @@ const HomePages = () => {
                 <Slider ref={sliderRef} {...settings} className="">
                     {slides.map((src, i) => (
                         <div key={i}>
-                            <img src={src} alt={`Banner ${i + 1}`} className="w-full h-auto" />
+                            <img src={src} alt={`Banner ${i + 1}`} className="w-full h-auto max-[480px]:h-[460px] object-cover" />
                         </div>
                     ))}
                 </Slider>
@@ -93,13 +93,13 @@ const HomePages = () => {
             </div>
             <HorizontalScroll marginTop={"80px"} marginX={"40px"} title={"Highlights"} data={Data.categories} customStyle={{marginRight : "-40px", marginLeft : "-40px", paddingLeft : "40px"}} customStyle2={{gap : "8px"}} imageHeight={"310px"} />
             <div
-                className="w-full h-[496px] flex items-center pl-[98px] my-[80px]"
+                className="w-full h-[496px] min-[448px]:pl-[98px] flex items-center max-[448px]:justify-center my-[80px]"
                 style={{
                     backgroundImage: `url(${backgroundBanner})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat',
                 }}
             >
-                <div className="flex flex-col gap-[24px]">
-                    <h1 className="header-1-bold text-[#A30303]">CHRISTMAS ESSENCIAL</h1>
+                <div className="flex flex-col gap-[24px] max-[448px]:items-center">
+                    <h1 className="header-1-bold text-[#A30303] max-[448px]:text-center">CHRISTMAS ESSENCIAL</h1>
                     <div className="flex flex-row gap-[16px]">
                         <div className="flex flex-row gap-[8px]">
                             <h1 className="label pb-3">Women</h1>
@@ -126,13 +126,13 @@ const HomePages = () => {
                     <h1 className="large">Explore Best Seller</h1>
                     <p className="body-regular w-111 font-light">Lorem ipsum dolor sit amet consectetur. Leo congue lorem leo quis a interdum. Pharetra auctor ut semper hendrerit eu.</p>
                 </div>
-                <div className="flex flex-row justify-between" >
+                <div className="flex flex-row justify-between " >
                     {data.BestSeller.map((item, index) => (
                         <div key={index}>
-                            <div>
-                                <div>
-                                    <img src={resolveImage(item.image)} alt={item.name} className={index == 2 ? "h-[537px]" : "h-[403px]"} />
-                                    <div className={index == 2 ? "hidden" : "text-center"}>
+                            <div className="flex gap-[100px] -mr-40">
+                                <div className={index == 2 ? "max-[448px]:hidden" : "flex justify-between flex-col -mr-10"}>
+                                <img src={resolveImage(item.image)} alt={item.name} className={index == 2 ? "h-[537px] max-[448px]:h-[224px]" : "h-[403px] max-[448px]:h-[224px]"} />
+                                <div className={index == 2 ? "hidden" : "text-center"}>
                                         <h3 className="body-regular my-[16px]">
                                             {item.name}
                                         </h3>

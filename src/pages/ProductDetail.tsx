@@ -87,6 +87,9 @@ const ProductDetail = () => {
 
 
     useEffect(() => {
+        // Scroll to top when product ID changes or component mounts
+        window.scrollTo(0, 0);
+
         // Find product from ProductsResult array
         const foundProduct = data.ProductsResult.find(
             (item) => item.id === Number(id)

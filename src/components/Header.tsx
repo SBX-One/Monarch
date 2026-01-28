@@ -2,11 +2,14 @@ import search from "../assets/svg/search.svg"
 import cart from "../assets/svg/cart_icon.svg"
 import language from "../assets/svg/language_icon.svg"
 import wishlist from "../assets/svg/wishlist_icon.svg"
+import arrowDown from "../assets/svg/chevron-down.svg"
 import x from "../assets/svg/x.svg"
+import burger from "../assets/svg/burger.svg"
 // import data from "../data/Data_Dummy.json"
 import clock from "../assets/svg/clock.svg"
 
 import { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
 // import { useNavigate } from "react-router-dom"
 
 type HeaderProps = {
@@ -69,18 +72,32 @@ export default function Header({searchValue = "", onSearchChange, onSubmitSearch
             <div className="h-14 flex items-center justify-center">
                 <h1 className="text-[#0A0805] satoshi ">CHRISTMAS SALE - UP TO 40% SITEWIDE</h1>
             </div>
-            <div className="h-32 flex items-center px-10 border-3 border-y-[#dedede] border-x-0">
-                <h1 className="inter-tight text-[#0A0805] header-2-bold mr-20">monarch</h1>
-                <div className="flex flex-row bg-full flex-1 gap-[24px]">
-                    <div className="flex flex-1 flex-row-reverse py-[10px] h-[44px] rounded-full px-[14px] bg-[#F4F4F4]">
-                        {deleteIcon && <img src={x} alt="delete" onClick={handleDeleteIcon} />}
-                        <input type="text" value={searchValue} onFocus={handleSearch} onKeyDown={(e) => {if (e.key === "Enter") onSubmitSearch?.()}} onChange={(e) => onSearchChange?.(e.target.value)} className="ml-[10px] w-full focus:outline-none" placeholder="Gomu-gomu sherpa fleece jacket" />
-                        <img src={search} alt="search" />
+            <div className=" flex max-[480px]:flex-col items-center px-10 border-3 border-y-[#dedede] border-x-0">
+                <div className="flex flex-row bg-full flex-1 gap-[24px] items-center">
+                    <h1 className="inter-tight text-[#0A0805] header-2-bold mr-20 max-[480px]:hidden shrink-0">monarch</h1>
+                    <div className="flex flex-col mt-[24px] min-[480px]:mt-0 min-[480px]:flex-row-reverse flex-1 gap-[24px]">
+                        <div className="flex gap-[24px] items-center ">
+                            <h1 className="inter-tight text-[#0A0805] header-2-bold mr-20 min-[480px]:hidden">monarch</h1>
+                            <img src={wishlist} alt="wishlist" className=""/>
+                            <Link to="/cart">
+                                <img src={cart} alt="cart" className="" />
+                            </Link>
+                            <img src={burger} alt="burger menu" className="min-[480px]:hidden w-[24px]"/>
+                        </div>
+                        <div className="mb-[24px] min-[480px]:my-10 flex flex-1 flex-row-reverse py-[10px] max-h-[44px] rounded-full px-[14px] bg-[#F4F4F4]">
+                            {deleteIcon && <img src={x} alt="delete" onClick={handleDeleteIcon} />}
+                            <input type="text" value={searchValue} onFocus={handleSearch} onKeyDown={(e) => {if (e.key === "Enter") onSubmitSearch?.()}} onChange={(e) => onSearchChange?.(e.target.value)} className="ml-[10px] w-full focus:outline-none" placeholder="Gomu-gomu sherpa fleece jacket" />
+                            <img src={search} alt="search" className="w-[20px]" />
+                        </div>
                     </div>
-                    <img src={wishlist} alt="wishlist" />
-                    <img src={cart} alt="cart" />
-                    <img src={language} alt="language" />
-                    <div className="bg-[#bebebe] w-[40px] h-[40px] rounded-full relative"></div>
+                    <div className="flex gap-[24px] shrink-0">
+                        <div className="max-[480px]:hidden flex flex-row items-center gap-[12px] p-[10px] border border-[#dedede] rounded-full">
+                            <img src={language} alt="language" />
+                            <h1 className="label">IDN</h1>
+                            <img src={arrowDown} alt="arrow down" />
+                        </div>
+                        <div className="max-[480px]:hidden bg-[#bebebe] w-[40px] h-[40px] rounded-full relative"></div>
+                    </div>
                         {searchHistory && (
                             <div className="w-full bg-white absolute left-0 top-40 z-30 h-160">
                                 <div className="mt-10">
