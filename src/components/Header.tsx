@@ -76,13 +76,13 @@ export default function Header({searchValue = "", onSearchChange, onSubmitSearch
                 <div className="flex flex-row bg-full flex-1 gap-[24px] items-center">
                     <h1 className="inter-tight text-[#0A0805] header-2-bold mr-20 max-[480px]:hidden shrink-0">monarch</h1>
                     <div className="flex flex-col mt-[24px] min-[480px]:mt-0 min-[480px]:flex-row-reverse flex-1 gap-[24px]">
-                        <div className="flex gap-[24px] items-center ">
+                        <div className="flex gap-[24px] items-center shrink-0">
                             <h1 className="inter-tight text-[#0A0805] header-2-bold mr-20 min-[480px]:hidden">monarch</h1>
-                            <img src={wishlist} alt="wishlist" className=""/>
-                            <Link to="/cart">
+                            <img src={wishlist} alt="wishlist" className="shrink-0"/>
+                            <Link to="/cart" className="shrink-0">
                                 <img src={cart} alt="cart" className="" />
                             </Link>
-                            <img src={burger} alt="burger menu" className="min-[480px]:hidden w-[24px]"/>
+                            <img src={burger} alt="burger menu" className="min-[480px]:hidden w-[24px] shrink-0"/>
                         </div>
                         <div className="mb-[24px] min-[480px]:my-10 flex flex-1 flex-row-reverse py-[10px] max-h-[44px] rounded-full px-[14px] bg-[#F4F4F4]">
                             {deleteIcon && <img src={x} alt="delete" onClick={handleDeleteIcon} />}

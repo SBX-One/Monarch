@@ -91,15 +91,15 @@ const HomePages = () => {
                     ))}
                 </div>
             </div>
-            <HorizontalScroll marginTop={"80px"} marginX={"40px"} title={"Highlights"} data={Data.categories} customStyle={{marginRight : "-40px", marginLeft : "-40px", paddingLeft : "40px"}} customStyle2={{gap : "8px"}} imageHeight={"310px"} />
+            <HorizontalScroll marginTop={"mt-[80px] max-[480px]:mt-[40px]"} marginX={"40px"} title={"Highlights"} data={Data.categories} customStyle={{marginRight : "-40px", marginLeft : "-40px", paddingLeft : "40px"}} customStyle2={{gap : "8px"}} imageHeight={"310px"} />
             <div
-                className="w-full h-[496px] min-[448px]:pl-[98px] flex items-center max-[448px]:justify-center my-[80px]"
+                className="w-full h-[496px] min-[480px]:pl-[98px] flex items-center max-[480px]:justify-center my-[80px]"
                 style={{
                     backgroundImage: `url(${backgroundBanner})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat',
                 }}
             >
-                <div className="flex flex-col gap-[24px] max-[448px]:items-center">
-                    <h1 className="header-1-bold text-[#A30303] max-[448px]:text-center">CHRISTMAS ESSENCIAL</h1>
+                <div className="flex flex-col gap-[24px] max-[480px]:items-center">
+                    <h1 className="header-1-bold text-[#A30303] max-[480px]:text-center">CHRISTMAS ESSENCIAL</h1>
                     <div className="flex flex-row gap-[16px]">
                         <div className="flex flex-row gap-[8px]">
                             <h1 className="label pb-3">Women</h1>
@@ -114,7 +114,7 @@ const HomePages = () => {
             </div>
 
             <section>
-                <HorizontalScroll marginTop={"80px"} marginX={"40px"} title={"Our Latest Collections"} data={Data.LatestCollections} customStyle2={{justifyContent: "space-between", maxHeight: "500px", minHeight: "448px"}} imageHeight={"448px"} />
+                <HorizontalScroll marginTop={"80px"} marginX={"40px"} title={"Our Latest Collections"} data={Data.LatestCollections} customStyle2={{justifyContent: "space-between", maxHeight: "500px", minHeight: "max-[480px]:224px min-[480px]:448px"}} imageHeight={"max-[480px]:224px min-[480px]:448px"} />
             </section>
 
             <section>
