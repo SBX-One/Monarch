@@ -121,7 +121,14 @@ export default function HorizontalScroll({ marginTop, marginX, gap = 8, title, d
         return bestMatch;
     };
 
-    const isScaleClass = (val: any) => typeof val === 'string' && (val.includes('h-') || val.includes('w-') || val.includes('mt-') || val.includes('px-'));
+    const isScaleClass = (val: any) => {
+        if (typeof val !== 'string') return false;
+        const parts = val.split(' ');
+        return parts.some(part => {
+            const actualValue = part.includes(':') ? part.split(':')[1] : part;
+            return actualValue.startsWith('h-') || actualValue.startsWith('w-') || actualValue.startsWith('mt-') || actualValue.startsWith('px-');
+        });
+    };
 
     const currentImageHeight = getResponsiveValue(imageHeight, '310px');
     const currentMt = getResponsiveValue(marginTop, '0px');
@@ -130,8 +137,16 @@ export default function HorizontalScroll({ marginTop, marginX, gap = 8, title, d
 
     const style2Data = typeof customStyle2 === 'object' && customStyle2 !== null ? {
         ...customStyle2,
-        minHeight: getResponsiveValue((customStyle2 as any).minHeight, (customStyle2 as any).minHeight)
-    } : customStyle2;
+        minHeight: getResponsiveValue((customStyle2 as any).minHeight, (customStyle2 as any).minHeight),
+        justifyContent: getResponsiveValue((customStyle2 as any).justifyContent, (customStyle2 as any).justifyContent),
+        gap: currentGap === "0px" ? 0 : currentGap,
+        display: 'flex',
+    } : { gap: currentGap === "0px" ? 0 : currentGap, display: 'flex' };
+
+    const textStyleData = typeof CustomTextStyle === 'object' && CustomTextStyle !== null ? {
+        ...CustomTextStyle,
+        width: getResponsiveValue((CustomTextStyle as any).width, (CustomTextStyle as any).width)
+    } : CustomTextStyle;
 
     const isBgEventClass = typeof CustomBackgroundEvent === "string";
 
@@ -166,23 +181,31 @@ export default function HorizontalScroll({ marginTop, marginX, gap = 8, title, d
                         <div
                             key={index}
                             className="flex-shrink-0 flex flex-col-reverse cursor-pointer"
-                            style={{ minWidth: 240, marginRight: currentGap }}
+                            style={{ 
+                                minWidth: !isScaleClass(imageHeight) ? (currentImageHeight as any) : 240,
+                                width: !isScaleClass(imageHeight) ? (currentImageHeight as any) : 240,
+                                margin: 0,
+                                padding: 0,
+                                boxSizing: 'border-box'
+                            }}
                             onClick={() => handleProductClick(item.id)}
                         >
                             {item.price !== undefined && (
                                 <h2 
                                     className={`mb-2 large ${typeof CustomTextStyle === 'string' ? CustomTextStyle : ""}`} 
-                                    style={typeof CustomTextStyle === 'object' ? (CustomTextStyle as React.CSSProperties) : {}}
+                                    style={typeof textStyleData === 'object' ? (textStyleData as React.CSSProperties) : {}}
                                 >
                                     {formatPrice(item.price)}.00 IDR
                                 </h2>
                             )}
-                            <h2 
-                                className={`mb-2 body-regular w-[70%] ${typeof CustomTextStyle === 'string' ? CustomTextStyle : ""}`} 
-                                style={typeof CustomTextStyle === 'object' ? (CustomTextStyle as React.CSSProperties) : {}}
-                            >
-                                {item.name}
-                            </h2>
+                            {item.name && (
+                                <h2 
+                                    className={`mb-2 body-regular w-[70%] ${typeof CustomTextStyle === 'string' ? CustomTextStyle : ""}`} 
+                                    style={typeof textStyleData === 'object' ? (textStyleData as React.CSSProperties) : {}}
+                                >
+                                    {item.name}
+                                </h2>
+                            )}
                             <div
                                 style={{
                                     height: !isScaleClass(imageHeight) ? (currentImageHeight as any) : undefined,

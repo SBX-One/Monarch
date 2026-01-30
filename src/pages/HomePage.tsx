@@ -114,11 +114,11 @@ const HomePages = () => {
             </div>
 
             <section>
-                <HorizontalScroll marginTop={"80px"} marginX={"40px"} title={"Our Latest Collections"} data={Data.LatestCollections} customStyle2={{justifyContent: "space-between", maxHeight: "500px", minHeight: "max-[480px]:224px min-[480px]:448px"}} imageHeight={"max-[480px]:224px min-[480px]:448px"} />
+                <HorizontalScroll gap={"max-[480px]:8px min-[481px]:8px"} marginTop={"max-[480px]:40px min-[481px]:80px"} marginX={"40px"} title={"Our Latest Collections"} data={Data.LatestCollections} customStyle2={{justifyContent: "min-[481px]:space-between max-[480px]:flex-start", maxHeight: "500px", minHeight: "max-[480px]:224px min-[481px]:448px", gap: "max-[480px]:0px min-[481px]:8px"}} imageHeight={"max-[480px]:224px min-[481px]:448px"} />
             </section>
 
             <section>
-                <HorizontalScroll marginTop={"80px"} marginX={"40px"} productSettings={true} CustomBackgroundEvent="#BC5249" CustomEventName="Christmas Sale" eventState={true} title={"Recomended For You"} data={Data.products} customStyle={{marginRight : "-40px", marginLeft : "-40px", paddingLeft : "40px"}} customStyle2={{justifyContent: "space-between", maxHeight: "500px", minHeight: "448px"}} imageHeight={"301px"} CustomTextStyle={{ width : "250px", textAlign : "center"}} />
+                <HorizontalScroll gap={"max-[480px]:8px min-[481px]:8px"} marginTop={"max-[480px]:40px min-[481px]:80px"} marginX={"40px"} productSettings={true} CustomBackgroundEvent="#BC5249" CustomEventName="Christmas Sale" eventState={true} title={"Recomended For You"} data={Data.products} customStyle={{justifyContent: "min-[481px]:space-between max-[480px]:flex-start",marginRight : "-40px", marginLeft : "-40px", paddingLeft : "40px"}} customStyle2={{justifyContent: "min-[481px]:space-between max-[480px]:flex-start", maxHeight: "auto", minHeight: "max-[480px]:224px min-[481px]:448px"}} imageHeight={"max-[480px]:224px min-[481px]:448px"} CustomTextStyle={{ width: "max-[480px]:192px min-[481px]:250px", textAlign: "center", marginLeft: "auto", marginRight: "auto", marginTop: "16px"}} />
             </section>
 
             <section className="mx-10 mt-[80px]">
@@ -147,7 +147,7 @@ const HomePages = () => {
                 </div>
             </section>
             <section>
-                <HorizontalScroll marginTop={"80px"} marginX={"40px"} title={"Trending Now"} data={Data["Explore More"]} customStyle={{marginRight : "-40px", marginLeft : "-40px", paddingLeft : "40px"}} customStyle2={{justifyContent: "space-between", maxHeight: "500px", minHeight: "310px"}} imageHeight={"310px"} />
+                <HorizontalScroll gap={"max-[480px]:0px min-[481px]:8px"} marginTop={"max-[480px]:40px min-[481px]:80px"} marginX={"max-[480px]:0px min-[481px]:40px"} title={"Trending Now"} data={Data["Explore More"]} customStyle={{marginRight : "-40px", marginLeft : "-40px", paddingLeft : "40px"}} customStyle2={{justifyContent: "space-between", maxHeight: "500px", minHeight: "310px"}} imageHeight={"310px"} />
             </section>
             <section>
                 <div className="mx-10">
