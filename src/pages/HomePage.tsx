@@ -114,7 +114,7 @@ const HomePages = () => {
             </div>
 
             <section>
-                <HorizontalScroll gap={"max-[480px]:8px min-[481px]:8px"} marginTop={"max-[480px]:40px min-[481px]:80px"} marginX={"40px"} title={"Our Latest Collections"} data={Data.LatestCollections} customStyle2={{justifyContent: "min-[481px]:space-between max-[480px]:flex-start", maxHeight: "500px", minHeight: "max-[480px]:224px min-[481px]:448px", gap: "max-[480px]:0px min-[481px]:8px"}} imageHeight={"max-[480px]:224px min-[481px]:448px"} />
+                <HorizontalScroll gap={"max-[480px]:8px min-[481px]:8px"} marginTop={"max-[480px]:40px min-[481px]:80px"} marginX={"40px"} title={"Our Latest Collections"} data={Data.LatestCollections} customStyle2={{justifyContent: "min-[481px]:space-between max-[480px]:flex-start", maxHeight: "500px", minHeight: "max-[480px]:224px min-[481px]:448px", gap: "max-[480px]:0px min-[481px]:8px"}} imageHeight={"max-[480px]:224px min-[481px]:448px"} customStyle={{marginRight : "-40px", marginLeft : "-40px", paddingLeft : "40px"}}/>
             </section>
 
             <section>
@@ -126,13 +126,13 @@ const HomePages = () => {
                     <h1 className="large">Explore Best Seller</h1>
                     <p className="body-regular w-111 font-light">Lorem ipsum dolor sit amet consectetur. Leo congue lorem leo quis a interdum. Pharetra auctor ut semper hendrerit eu.</p>
                 </div>
-                <div className="flex flex-row justify-between " >
+                <div className="flex flex-row w-auto gap-[8px] justify-between -mr-20" >
                     {data.BestSeller.map((item, index) => (
                         <div key={index}>
-                            <div className="flex gap-[100px] -mr-40">
-                                <div className={index == 2 ? "max-[448px]:hidden" : "flex justify-between flex-col -mr-10"}>
-                                <img src={resolveImage(item.image)} alt={item.name} className={index == 2 ? "h-[537px] max-[448px]:h-[224px]" : "h-[403px] max-[448px]:h-[224px]"} />
-                                <div className={index == 2 ? "hidden" : "text-center"}>
+                            <div className="flex max-[480px]:gap-[8px]">
+                                <div className={index == 2 ? "max-[480px]:hidden" : "flex justify-between flex-col -mr-10"}>
+                                <img src={resolveImage(item.image)} alt={item.name} className={index == 2 ? "h-[537px] max-[480px]:h-[224px]" : "h-[403px] max-[480px]:h-[224px] max-[480px]:w-[224px]"} />
+                                <div className={index == 2 ? "hidden" : "text-center max-[480px]:w-[224px]"}>
                                         <h3 className="body-regular my-[16px]">
                                             {item.name}
                                         </h3>
@@ -147,7 +147,7 @@ const HomePages = () => {
                 </div>
             </section>
             <section>
-                <HorizontalScroll gap={"max-[480px]:0px min-[481px]:8px"} marginTop={"max-[480px]:40px min-[481px]:80px"} marginX={"max-[480px]:0px min-[481px]:40px"} title={"Trending Now"} data={Data["Explore More"]} customStyle={{marginRight : "-40px", marginLeft : "-40px", paddingLeft : "40px"}} customStyle2={{justifyContent: "space-between", maxHeight: "500px", minHeight: "310px"}} imageHeight={"310px"} />
+                <HorizontalScroll gap={"8px"} marginTop={"max-[480px]:40px min-[481px]:40px"} marginX={"max-[480px]:40px min-[481px]:40px"} title={"Explore More"} data={Data["Explore More"]} customStyle={{marginRight : "-40px", marginLeft : "-40px", paddingLeft : "40px"}} customStyle2={{justifyContent: "space-between", maxHeight: "500px", minHeight: "310px"}} imageHeight={"max-[480px]:224px min-[481px]:310px"} />
             </section>
             <section>
                 <div className="mx-10">
