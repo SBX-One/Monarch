@@ -4,6 +4,7 @@ type ProductResultProps = {
     title : string;
     data : { id?: number; name?: string; image?: string, price?: number, eventType?: string }[];
     imageHeight?: React.CSSProperties["height"] | string;
+    imageWidth?: React.CSSProperties["width"] | string;
     imageGap?: React.CSSProperties["gap"] | string;
     justify?: React.CSSProperties["justifyContent"] | string;
     textWidth?: React.CSSProperties["width"] | string;
@@ -11,7 +12,7 @@ type ProductResultProps = {
     marginTopProduct?: string;
 }
 
-export default function ProductResult({title, data, imageHeight, imageGap, justify, textWidth, marginYText, marginTopProduct} : ProductResultProps) {
+export default function ProductResult({title, data, imageHeight, imageWidth, imageGap, justify, textWidth, marginYText, marginTopProduct} : ProductResultProps) {
     const navigate = useNavigate();
 
     const resolveImage = (path : string) => {
@@ -28,18 +29,40 @@ export default function ProductResult({title, data, imageHeight, imageGap, justi
     }
 
     return (
-        <div className="mx-10 flex">
-            <h1>{title}</h1>
-            <div className={`flex w-full gap-[${imageGap}] justify-${justify} mt-[${marginTopProduct}] `}>
+        <div className="mx-6 min-[480px]:mx-10 flex flex-col" style={{ marginTop: marginTopProduct }}>
+            {title && <h1 className="header-3-bold mb-4">{title}</h1>}
+            <div 
+                className={`flex flex-wrap w-full`} 
+                style={{ 
+                    gap: imageGap || '24px', 
+                    justifyContent: justify || 'flex-start' 
+                }}
+            >
                 {data?.map((item, index) => (
                     <div 
                         key={index} 
-                        className={`flex flex-col cursor-pointer`}
+                        className="flex flex-col cursor-pointer w-full"
                         onClick={() => item.id && navigate(`/product/${item.id}`)}
+                        style={{ maxWidth: imageWidth || textWidth || '196px' }}
                     >
-                        <img src={resolveImage(item.image as string)} alt="product" className={`max-w-[${imageHeight}] h-[${imageHeight}]`} />
-                        <h2 className={`w-[${textWidth}] mx-auto text-center body-regular my-[${marginYText}]`}>{item.name}</h2>
-                        <p className="text-center large ">{formatPrice(item.price)},00 IDR</p>
+                        <div className="relative w-full overflow-hidden rounded-lg">
+                            <img 
+                                src={resolveImage(item.image as string)} 
+                                alt="product" 
+                                className="w-full object-cover"
+                                style={{ 
+                                    height: imageHeight || '250px' 
+                                }}
+                            />
+                        </div>
+                        <h2 
+                            className="text-center body-regular truncate px-1" 
+                            style={{ marginTop: marginYText || '8px' }}
+                            title={item.name}
+                        >
+                            {item.name}
+                        </h2>
+                        <p className="text-center large font-bold">{formatPrice(item.price)},00 IDR</p>
                     </div>
                 ))}
             </div>

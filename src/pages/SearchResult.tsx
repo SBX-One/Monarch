@@ -13,16 +13,14 @@ import FILTER_CONFIG from "../components/FilterConfig";
 import FilterDropdown from "../components/FIlterDropDown";
 // import ProductResult from "../components/ProductsResult.tsx";
 
-type Gender = "Women" | "Men" | "Unisex";
-type Offer = "Christmas Sale" | "New Arrival" | "none";
-type Size = "S" | "M" | "L" | "XL" | "XXL";
-type Color = "Bright" | "Dark";
+import type { Gender, Offer, Size, Color, PriceRange } from "../components/FilterConfig";
 
 type ActiveFilters = {
     gender: Gender | null;
     offer: Offer | null;
     size: Size | null;
     color: Color | null;
+    price: PriceRange | null;
 };
 
 export default function SearchResult() {
@@ -30,11 +28,19 @@ export default function SearchResult() {
     const decodedQuery = query?.replace(/\+/g, " ").toLowerCase().trim() || "";
     const [searchInput, setSearchInput] = useState("");
     const navigate = useNavigate();
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 480);
+
+    useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth <= 480);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
     const [activeFilters, setActiveFilter] = useState<ActiveFilters>({
         size: null,
         gender: null,
         color: null,
-        offer: null
+        offer: null,
+        price: null
     })
     // const filteredProducts = data.ProductsResult.filter((item) => item.name.toLowerCase().includes(decodedQuery || ""));
 
@@ -65,6 +71,13 @@ export default function SearchResult() {
             ? product.size === activeFilters.size
             : true;
 
+        const matchPrice = activeFilters.price
+            ? (activeFilters.price === "Under 1.000.000" ? product.price < 1000000 
+               : activeFilters.price === "1.000.000 - 2.000.000" ? (product.price >= 1000000 && product.price <= 2000000)
+               : activeFilters.price === "Above 2.000.000" ? product.price > 2000000
+               : true)
+            : true;
+
         // const matchColor = activeFilters.color
         //     ? product. === activeFilters.color
         //     : true;
@@ -73,7 +86,8 @@ export default function SearchResult() {
             matchSearch &&
             matchGender &&
             matchOffer &&
-            matchSize
+            matchSize &&
+            matchPrice
             // matchColor
         );
     });
@@ -108,25 +122,36 @@ export default function SearchResult() {
                 <div className="flex">
                     <p className="small ml-10 mt-10 flex items-center gap-[16px]">monarch <div className="bg-[#dedede] w-[6px] h-[6px] rounded-full" /> <span className="text-[#A30303]">Search</span></p>
                 </div>
-                <div className="flex ml-10 h-[24px] items-center mt-[24px] pb-[48px] border-b border-[#dedede]">
-                    <img src={Slider} alt="slider" className="mr-[24px]" />
-                    <div className="flex gap-[8px]">
+                <div className="flex ml-10 items-center mt-[24px] pb-[24px] border-b border-[#dedede]">
+                    <img src={Slider} alt="slider" className="mr-[24px] shrink-0" />
+                    <div className="flex gap-[8px] overflow-x-auto no-scrollbar scroll-smooth whitespace-nowrap flex-1 py-4 pb-[200px] mb-[-200px]">
                         {FILTER_CONFIG.map(filter => (
-                            <FilterDropdown
-                                key={filter.key}
-                                label={filter.label}
-                                options={filter.options}
-                                value={activeFilters[filter.key]}
-                                onSelect={(val) =>
-                                    handleFilterChange(filter.key, val)
-                                }
-                            />
+                            <div key={filter.key} className="shrink-0">
+                                <FilterDropdown
+                                    label={filter.label}
+                                    options={filter.options}
+                                    value={activeFilters[filter.key]}
+                                    onSelect={(val) =>
+                                        handleFilterChange(filter.key, val)
+                                    }
+                                />
+                            </div>
                         ))}
                     </div>
                 </div>
             </div>
 
-            <ProductResult title="" data={filteredProducts} imageHeight="334px" justify="between" textWidth="300px" marginYText="16px" marginTopProduct="24px" />
+            <div className="mx-auto">
+                <ProductResult 
+                    title="" 
+                    data={filteredProducts} 
+                    imageWidth={isMobile ? "196px" : "334px"} 
+                    imageHeight={isMobile ? "250px" : "334px"} 
+                    imageGap="24px"
+                    justify="start"
+                    textWidth={isMobile ? "196px" : "300px"}
+                />
+            </div>
         </div>
     )
 }

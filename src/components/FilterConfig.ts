@@ -2,6 +2,7 @@ export type Gender = "Women" | "Men" | "Unisex";
 export type Offer = "Christmas Sale" | "New Arrival" | "none";
 export type Size = "S" | "M" | "L" | "XL" | "XXL";
 export type Color = "Bright" | "Dark";
+export type PriceRange = "Under 1.000.000" | "1.000.000 - 2.000.000" | "Above 2.000.000";
 
 export type FilterConfig =
   | {
@@ -23,6 +24,11 @@ export type FilterConfig =
       key: "color";
       label: string;
       options: readonly Color[];
+    }
+  | {
+      key: "price";
+      label: string;
+      options: readonly PriceRange[];
     };
 
 const FILTER_CONFIG: readonly FilterConfig[] = [
@@ -45,6 +51,11 @@ const FILTER_CONFIG: readonly FilterConfig[] = [
     key: "color",
     label: "Color",
     options: ["Bright", "Dark"],
+  },
+  {
+    key: "price",
+    label: "Price",
+    options: ["Under 1.000.000", "1.000.000 - 2.000.000", "Above 2.000.000"],
   },
 ];
 

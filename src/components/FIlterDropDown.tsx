@@ -3,7 +3,7 @@ import arrow_down from "../assets/svg/chevron-down.svg";
 
 type FilterDropdownProps<T extends string> = {
   label: string;
-  options: T[];
+  options: readonly T[];
   value: T | null;
   onSelect: (value: T | null) => void;
 };
