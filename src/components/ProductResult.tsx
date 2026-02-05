@@ -45,7 +45,7 @@ export default function ProductResult({title, data, imageHeight, imageWidth, ima
                         onClick={() => item.id && navigate(`/product/${item.id}`)}
                         style={{ maxWidth: imageWidth || textWidth || '196px' }}
                     >
-                        <div className="relative w-full overflow-hidden rounded-lg">
+                        <div className="relative w-full overflow-hidden">
                             <img 
                                 src={resolveImage(item.image as string)} 
                                 alt="product" 

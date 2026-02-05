@@ -75,10 +75,14 @@ export default function Header({searchValue = "", onSearchChange, onSubmitSearch
             </div>
             <div className=" flex max-[480px]:flex-col items-center border-3 border-y-[#dedede] border-x-0">
                 <div className="flex flex-row bg-full flex-1 gap-[24px] items-center px-6 min-[480px]:px-10">
-                    <h1 className="inter-tight text-[#0A0805] header-2-bold max-[480px]:hidden shrink-0">monarch</h1>
+                    <Link to="/">
+                        <h1 className="inter-tight text-[#0A0805] header-2-bold max-[480px]:hidden shrink-0">monarch</h1>
+                    </Link>
                     <div className="flex flex-col mt-[24px] min-[480px]:mt-0 min-[480px]:flex-row-reverse flex-1 gap-[24px]">
                         <div className="flex gap-[24px] items-center shrink-0 max-[480px]:hidden">
-                            <h1 className="inter-tight text-[#0A0805] header-2-bold mr-20 min-[480px]:hidden">monarch</h1>
+                            <Link to="/">
+                                <h1 className="inter-tight text-[#0A0805] header-2-bold mr-20 min-[480px]:hidden">monarch</h1>
+                            </Link>
                             <img src={wishlist} alt="wishlist" className="shrink-0"/>
                             <Link to="/cart" className="shrink-0">
                                 <img src={cart} alt="cart" className="" />

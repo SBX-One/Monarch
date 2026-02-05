@@ -141,14 +141,14 @@ export default function SearchResult() {
                 </div>
             </div>
 
-            <div className="mx-auto">
+            <div className="mx-auto mt-[24px]">
                 <ProductResult 
                     title="" 
                     data={filteredProducts} 
-                    imageWidth={isMobile ? "196px" : "334px"} 
-                    imageHeight={isMobile ? "250px" : "334px"} 
+                    imageWidth={isMobile ? "196px" : "340px"} 
+                    imageHeight={isMobile ? "250px" : "340px"} 
                     imageGap="24px"
-                    justify="start"
+                    justify="center"
                     textWidth={isMobile ? "196px" : "300px"}
                 />
             </div>
